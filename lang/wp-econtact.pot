@@ -1,0 +1,2048 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-03-05T12:27:21-05:00\n"
+"POT-Creation-Date: 2015-03-05T12:27:21-05:00\n"
+
+#: wp-easy-contact/forms/contact-submit.php:16
+msgid "First Name"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:18
+msgid "Please enter your first name."
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:19
+msgid "First Name field is required"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:33
+msgid "Last Name"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:35
+msgid "Please enter your last name."
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:36
+msgid "Last Name field is required"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:50
+msgid "Email"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:52
+msgid "Please enter your email address."
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:53
+msgid "Email field is required"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:67
+msgid "Phone"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:69
+msgid "Please enter your phone or mobile."
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:81
+msgid "Address"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:83
+msgid "Please enter your mailing address."
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:95
+msgid "City"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:97
+msgid "Please enter your city."
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:109
+msgid "State"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:111
+msgid "Please enter your state you reside in."
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:123
+msgid "Zip Code"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:125
+msgid "Please enter your zip code."
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:137
+msgid "Countries"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:139
+msgid "Please enter your country you reside in."
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:151
+msgid "Subject"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:153
+msgid "Subject field is required"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:167
+msgid "Message"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:169
+msgid "Message field is required"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:189
+msgid "Please enter the characters with black color in the image above."
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:192
+msgid "Security Code field is required"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/dashboard-widgets.php:17
+#: wp-easy-contact/includes/admin/dashboard-widgets.php:19
+msgid "Recent Contacts"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:22
+msgid "WP Easy Contact provides a contact form and stores the collected information in WordPress."
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:23
+msgid "The below are the definitions of entities, attributes, and terms included in WP Easy Contact."
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:27
+msgid "Contacts"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:30
+msgid ""
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:32
+msgid "Please enter your first name. First Name is a required field. First Name does not have a default value. "
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:35
+msgid "Please enter your last name. Last Name is a required field. Last Name does not have a default value. "
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:38
+msgid "Please enter your email address. Email is a required field. Email does not have a default value. "
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:41
+msgid "Please enter your phone or mobile. Phone does not have a default value. "
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:44
+msgid "Please enter your mailing address. Address does not have a default value. "
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:47
+msgid "Please enter your city. City does not have a default value. "
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:50
+msgid "Please enter your zip code. Zip Code does not have a default value. "
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:53
+msgid " Subject is a required field. Subject does not have a default value. "
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:56
+msgid " Message is a required field. Message does not have a default value. "
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:58
+#: wp-easy-contact/includes/admin/glossary.php:126
+msgid "ID"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:59
+msgid "Unique contact id incremented by one to keep tract of communications ID does not have a default value. "
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:61
+msgid "Form Name"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:62
+msgid " Form Name is filterable in the admin area. Form Name has a default value of <b>admin</b>."
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:64
+msgid "Form Submitted By"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:65
+msgid " Form Submitted By is filterable in the admin area. Form Submitted By does not have a default value. "
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:67
+msgid "Form Submitted IP"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:68
+msgid " Form Submitted IP is filterable in the admin area. Form Submitted IP does not have a default value. "
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Please enter your country you reside in. Countries accepts multiple values like tags"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Countries does not have a default value"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "The following are the preset values for <b>Countries:</b>"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Afghanistan"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Åland Islands"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Albania"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Algeria"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "American Samoa"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Andorra"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Angola"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Anguilla"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Antarctica"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Antigua And Barbuda"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Argentina"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Armenia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Aruba"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Australia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Austria"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Azerbaijan"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Bahamas"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Bahrain"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Bangladesh"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Barbados"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Belarus"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Belgium"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Belize"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Benin"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Bermuda"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Bhutan"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Bolivia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Bosnia And Herzegovina"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Botswana"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Bouvet Island"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Brazil"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "British Indian Ocean Territory"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Brunei Darussalam"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Bulgaria"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Burkina Faso"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Burundi"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Cambodia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Cameroon"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Canada"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Cape Verde"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Cayman Islands"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Central African Republic"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Chad"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Chile"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "China"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Christmas Island"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Cocos (Keeling) Islands"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Colombia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Comoros"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Congo"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Congo, The Democratic Republic Of The"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Cook Islands"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Costa Rica"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Cote D'ivoire"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Croatia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Cuba"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Cyprus"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Czech Republic"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Denmark"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Djibouti"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Dominica"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Dominican Republic"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Ecuador"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Egypt"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "El Salvador"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Equatorial Guinea"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Eritrea"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Estonia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Ethiopia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Falkland Islands (Malvinas)"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Faroe Islands"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Fiji"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Finland"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "France"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "French Guiana"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "French Polynesia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "French Southern Territories"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Gabon"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Gambia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+#: wp-easy-contact/includes/admin/glossary.php:119
+msgid "Georgia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Germany"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Ghana"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Gibraltar"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Greece"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Greenland"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Grenada"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Guadeloupe"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Guam"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Guatemala"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Guernsey"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Guinea"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Guinea-bissau"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Guyana"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Haiti"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Heard Island And Mcdonald Islands"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Holy See (Vatican City State)"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Honduras"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Hong Kong"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Hungary"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Iceland"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "India"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Indonesia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Iran, Islamic Republic Of"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Iraq"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Ireland"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Isle Of Man"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Israel"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Italy"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Jamaica"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Japan"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Jersey"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Jordan"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Kazakhstan"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Kenya"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Kiribati"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Korea, Democratic People's Republic Of"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Korea, Republic Of"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Kuwait"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Kyrgyzstan"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Lao People's Democratic Republic"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Latvia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Lebanon"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Lesotho"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Liberia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Libyan Arab Jamahiriya"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Liechtenstein"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Lithuania"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Luxembourg"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Macao"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Macedonia, The Former Yugoslav Republic Of"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Madagascar"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Malawi"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Malaysia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Maldives"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Mali"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Malta"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Marshall Islands"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Martinique"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Mauritania"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Mauritius"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Mayotte"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Mexico"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Micronesia, Federated States Of"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Moldova, Republic Of"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Monaco"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Mongolia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Montenegro"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Montserrat"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Morocco"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Mozambique"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Myanmar"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Namibia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Nauru"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Nepal"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Netherlands"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Netherlands Antilles"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "New Caledonia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "New Zealand"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Nicaragua"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Niger"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Nigeria"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Niue"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Norfolk Island"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Northern Mariana Islands"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Norway"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Oman"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Pakistan"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Palau"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Palestinian Territory, Occupied"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Panama"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Papua New Guinea"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Paraguay"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Peru"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Philippines"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Pitcairn"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Poland"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Portugal"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Puerto Rico"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Qatar"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Reunion"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Romania"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Russian Federation"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Rwanda"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Saint Helena"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Saint Kitts And Nevis"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Saint Lucia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Saint Pierre And Miquelon"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Saint Vincent And The Grenadines"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Samoa"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "San Marino"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Sao Tome And Principe"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Saudi Arabia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Senegal"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Serbia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Seychelles"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Sierra Leone"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Singapore"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Slovakia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Slovenia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Solomon Islands"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Somalia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "South Africa"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "South Georgia And The South Sandwich Islands"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Spain"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Sri Lanka"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Sudan"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Suriname"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Svalbard And Jan Mayen"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Swaziland"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Sweden"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Switzerland"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Syrian Arab Republic"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Taiwan, Province Of China"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Tajikistan"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Tanzania, United Republic Of"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Thailand"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Timor-leste"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Togo"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Tokelau"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Tonga"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Trinidad And Tobago"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Tunisia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Turkey"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Turkmenistan"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Turks And Caicos Islands"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Tuvalu"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Uganda"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Ukraine"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "United Arab Emirates"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "United Kingdom"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "United States"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "United States Minor Outlying Islands"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Uruguay"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Uzbekistan"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Vanuatu"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Venezuela"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Viet Nam"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Virgin Islands, British"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Virgin Islands, U.S."
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Wallis And Futuna"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Western Sahara"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Yemen"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Zambia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:72
+msgid "Zimbabwe"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:77
+msgid "Please enter your state you reside in. State accepts multiple values like tags"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:77
+msgid "State does not have a default value"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:77
+msgid "The following are the preset values and value descriptions for <b>State:</b>"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:78
+msgid "AL"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:79
+msgid "Alabama"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:82
+msgid "AK"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:83
+msgid "Alaska"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:86
+msgid "AZ"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:87
+msgid "Arizona"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:90
+msgid "AR"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:91
+msgid "Arkansas"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:94
+msgid "CA"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:95
+msgid "California"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:98
+msgid "CO"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:99
+msgid "Colorado"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:102
+msgid "CT"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:103
+msgid "Connecticut"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:106
+msgid "DE"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:107
+msgid "Delaware"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:110
+msgid "DC"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:111
+msgid "District of Columbia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:114
+msgid "FL"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:115
+msgid "Florida"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:118
+msgid "GA"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:122
+msgid "HI"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:123
+msgid "Hawaii"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:127
+msgid "Idaho"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:130
+msgid "IL"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:131
+msgid "Illinois"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:134
+msgid "IN"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:135
+msgid "Indiana"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:138
+msgid "IA"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:139
+msgid "Iowa"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:142
+msgid "KS"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:143
+msgid "Kansas"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:146
+msgid "KY"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:147
+msgid "Kentucky"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:150
+msgid "LA"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:151
+msgid "Louisiana"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:154
+msgid "ME"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:155
+msgid "Maine"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:158
+msgid "MD"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:159
+msgid "Maryland"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:162
+msgid "MA"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:163
+msgid "Massachusetts"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:166
+msgid "MI"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:167
+msgid "Michigan"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:170
+msgid "MN"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:171
+msgid "Minnesota"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:174
+msgid "MS"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:175
+msgid "Mississippi"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:178
+msgid "MO"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:179
+msgid "Missouri"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:182
+msgid "MT"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:183
+msgid "Montana"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:186
+msgid "NE"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:187
+msgid "Nebraska"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:190
+msgid "NV"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:191
+msgid "Nevada"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:194
+msgid "NH"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:195
+msgid "New Hampshire"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:198
+msgid "NJ"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:199
+msgid "New Jersey"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:202
+msgid "NM"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:203
+msgid "New Mexico"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:206
+msgid "NY"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:207
+msgid "New York"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:210
+msgid "NC"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:211
+msgid "North Carolina"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:214
+msgid "ND"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:215
+msgid "North Dakota"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:218
+msgid "OH"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:219
+msgid "Ohio"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:222
+msgid "OK"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:223
+msgid "Oklahoma"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:226
+msgid "OR"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:227
+msgid "Oregon"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:230
+msgid "PA"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:231
+msgid "Pennsylvania"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:234
+msgid "RI"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:235
+msgid "Rhode Island"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:238
+msgid "SC"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:239
+msgid "South Carolina"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:242
+msgid "SD"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:243
+msgid "South Dakota"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:246
+msgid "TN"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:247
+msgid "Tennessee"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:250
+msgid "TX"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:251
+msgid "Texas"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:254
+msgid "UT"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:255
+msgid "Utah"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:258
+msgid "VT"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:259
+msgid "Vermont"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:262
+msgid "VA"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:263
+msgid "Virginia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:266
+msgid "WA"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:267
+msgid "Washington"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:270
+msgid "WV"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:271
+msgid "West Virginia"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:274
+msgid "WI"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:275
+msgid "Wisconsin"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:278
+msgid "WY"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:279
+msgid "Wyoming"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:285
+msgid "Contact Tag"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:287
+msgid " Contact Tag accepts multiple values like tags"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:287
+msgid "Contact Tag does not have a default value"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/glossary.php:287
+msgid "There are no preset values for <b>Contact Tag:</b>"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/license-functions.php:28
+msgid "Please enter and activate your <b>license keys</b>."
+msgstr ""
+
+#: wp-easy-contact/includes/admin/license-functions.php:81
+msgid "Deactivate License"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/license-functions.php:85
+msgid "Activate License"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/misc-functions.php:32
+msgid "Title"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/misc-functions.php:42
+msgid "Content"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/misc-functions.php:52
+msgid "required"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/store-functions.php:22
+#: wp-easy-contact/includes/admin/store-functions.php:42
+msgid "Browse All"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/store-functions.php:24
+msgid "The following plugins extend and expand the functionality of your app."
+msgstr ""
+
+#: wp-easy-contact/includes/admin/store-functions.php:44
+msgid "The following <a href=\"%s\" title=\"WP App Studio Prodev\" target=\"_blank\">WP App Studio Prodev</a> plugin designs can be used as a template:"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/store-functions.php:46
+msgid "To customize the functionality of their corresponding plugins"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/store-functions.php:49
+msgid "To create your own plugin"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/store-functions.php:74
+msgid "There was an error retrieving the extensions list from the server. Please try again later."
+msgstr ""
+
+#: wp-easy-contact/includes/admin/store-functions.php:92
+msgid "Thanks for installing %s."
+msgstr ""
+
+#: wp-easy-contact/includes/admin/store-functions.php:92
+msgid "All support requests are accepted through <a href=\"%s\" target=\"_blank\">our support site.</a>"
+msgstr ""
+
+#: wp-easy-contact/includes/admin/store-functions.php:115
+msgid "Like our plugin? Leave us a review"
+msgstr ""
+
+#: wp-easy-contact/includes/class-install-deactivate.php:232
+msgid "Contact Form"
+msgstr ""
+
+#: wp-easy-contact/includes/class-install-deactivate.php:310
+msgid "States"
+msgstr ""
+
+#: wp-easy-contact/includes/class-install-deactivate.php:315
+msgid "Country"
+msgstr ""
+
+#: wp-easy-contact/includes/class-install-deactivate.php:320
+msgid "Contact Tags"
+msgstr ""
+
+#: wp-easy-contact/includes/class-install-deactivate.php:413
+msgid "New To WP Easy Contact? Review the documentation!"
+msgstr ""
+
+#: wp-easy-contact/includes/class-install-deactivate.php:413
+msgid "&#187;"
+msgstr ""
+
+#: wp-easy-contact/includes/class-install-deactivate.php:413
+msgid "Dismiss"
+msgstr ""
+
+#: wp-easy-contact/includes/class-install-deactivate.php:419
+msgid "Welcome to WP Easy Contact"
+msgstr ""
+
+#: wp-easy-contact/includes/class-install-deactivate.php:420
+msgid "Setup WP Easy Contact Pages"
+msgstr ""
+
+#: wp-easy-contact/includes/class-install-deactivate.php:420
+msgid "Skip setup"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact-widgets.php:37
+msgid "The most recent contacts"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:172
+#: wp-easy-contact/includes/entities/class-emd-contact.php:1572
+msgid "Contact"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:173
+msgid "Add New"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:174
+msgid "Add New Contact"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:175
+msgid "Edit Contact"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:176
+msgid "New Contact"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:177
+msgid "All Contacts"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:178
+msgid "View Contact"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:179
+msgid "Search Contacts"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:180
+msgid "No Contacts Found"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:181
+msgid "No Contacts Found In Trash"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:211
+msgid "Search Country"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:212
+msgid "Popular Country"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:213
+#: wp-easy-contact/includes/entities/class-emd-contact.php:251
+#: wp-easy-contact/includes/entities/class-emd-contact.php:289
+msgid "All"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:216
+msgid "Edit Countries"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:217
+msgid "Update Countries"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:218
+msgid "Add New Countries"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:219
+msgid "Add New Countries Name"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:220
+msgid "Seperate Country with commas"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:221
+msgid "Add or Remove Country"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:222
+msgid "Choose from the most used Country"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:249
+msgid "Search Contact Tags"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:250
+msgid "Popular Contact Tags"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:254
+msgid "Edit Contact Tag"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:255
+msgid "Update Contact Tag"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:256
+msgid "Add New Contact Tag"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:257
+msgid "Add New Contact Tag Name"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:258
+msgid "Seperate Contact Tags with commas"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:259
+msgid "Add or Remove Contact Tags"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:260
+msgid "Choose from the most used Contact Tags"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:287
+msgid "Search States"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:288
+msgid "Popular States"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:292
+msgid "Edit State"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:293
+msgid "Update State"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:294
+msgid "Add New State"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:295
+msgid "Add New State Name"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:296
+msgid "Seperate States with commas"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:297
+msgid "Add or Remove States"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:298
+msgid "Choose from the most used States"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:1576
+msgid "Contact Info"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:1646
+msgid "Unique contact id incremented by one to keep tract of communications"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:54
+msgid "First Name is required"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:68
+msgid "Last Name is required"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:82
+msgid "Email is required"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:86
+msgid "Email: Please enter a valid email address"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:121
+#: wp-easy-contact/includes/forms.php:147
+msgid "Please Select"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:170
+msgid "Subject is required"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:178
+msgid "Enter text ..."
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:185
+msgid "Message is required"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:203
+msgid "Please enter the characters with black color."
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:205
+msgid "Code"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:210
+msgid "Captcha is required"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:214
+msgid "Characters from captcha image entered incorrectly!"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:218
+msgid "Send"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:239
+msgid "You are not allowed to access to this area. Please contact the site administrator."
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:40
+#: wp-easy-contact/includes/scripts.php:97
+msgid "Please enter a unique value."
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:81
+msgid "This field is required."
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:82
+msgid "Please fix this field."
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:83
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:84
+msgid "Please enter a valid URL."
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:85
+msgid "Please enter a valid date."
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:86
+msgid "Please enter a valid date ( ISO )"
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:87
+msgid "Please enter a valid number."
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:88
+msgid "Please enter only digits."
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:89
+msgid "Please enter a valid credit card number."
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:90
+msgid "Please enter the same value again."
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:91
+msgid "Please enter no more than {0} characters."
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:92
+msgid "Please enter at least {0} characters."
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:93
+msgid "Please enter a value between {0} and {1} characters long."
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:94
+msgid "Please enter a value between {0} and {1}."
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:95
+msgid "Please enter a value less than or equal to {0}."
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:96
+msgid "Please enter a value greater than or equal to {0}."
+msgstr ""
+
+#: wp-easy-contact/wp-easy-contact.php:72
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: wp-easy-contact/wp-easy-contact.php:217
+msgid "WP Easy Contact"
+msgstr ""
+
+#: wp-easy-contact/wp-easy-contact.php:221
+msgid "Glossary"
+msgstr ""
+
+#: wp-easy-contact/wp-easy-contact.php:222
+msgid "Add-Ons"
+msgstr ""
+
+#: wp-easy-contact/wp-easy-contact.php:226
+msgid "Designs"
+msgstr ""
+
+#: wp-easy-contact/wp-easy-contact.php:230
+msgid "Support"
+msgstr ""
+
+#: wp-easy-contact/wp-easy-contact.php:246
+msgid "Licenses"
+msgstr ""
