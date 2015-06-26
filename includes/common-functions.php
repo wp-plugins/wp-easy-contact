@@ -167,14 +167,14 @@ function emd_parse_template_tags($app, $message, $pid) {
 		'pending',
 		'draft'
 	))) {
-		$permlink = wp_login_url(add_query_arg('preview', 'true', get_permalink($pid)));
+		$permlink = wp_login_url(esc_url(add_query_arg('preview', 'true', get_permalink($pid))));
 	}
 
 	$builtins = Array(
 		'title' => $mypost->post_title,
 		'permalink' => $permlink,
 		'edit_link' => get_edit_post_link($pid) ,
-		'delete_link' => add_query_arg('frontend', 'true', get_delete_post_link($pid)) ,
+		'delete_link' => esc_url(add_query_arg('frontend', 'true', get_delete_post_link($pid))) ,
 		'excerpt' => $mypost->post_excerpt,
 		'content' => $mypost->post_content,
 		'author_dispname' => get_the_author_meta('display_name',$mypost->post_author),
@@ -186,12 +186,22 @@ function emd_parse_template_tags($app, $message, $pid) {
 		'author_googleplus' => get_the_author_meta('googleplus',$mypost->post_author),
 		'author_twitter' => get_the_author_meta('twitter',$mypost->post_author),
 	);
+
+	$glob_list = get_option($app . "_glob_list");
+	if(!empty($glob_list)){
+		foreach($glob_list as $kglob => $vglob){
+			$globs[$kglob] = emd_glob_val($app,$kglob);
+		}
+	}
+	
 	//first get each template tag
 	if (preg_match_all('/\{([^}]*)\}/', $message, $matches)) {
 		foreach ($matches[1] as $match_tag) {
 			//replace if builtin
 			if (in_array($match_tag, array_keys($builtins))) {
 				$message = str_replace('{' . $match_tag . '}', $builtins[$match_tag], $message);
+			} elseif (!empty($globs) && in_array($match_tag, array_keys($globs))) {
+				$message = str_replace('{' . $match_tag . '}', $globs[$match_tag], $message);
 			} elseif (preg_match('/^wpas_/', $match_tag)) {
 				$message = str_replace('{' . $match_tag . '}', emd_mb_meta($match_tag, array() , $pid) , $message);
 			} elseif (preg_match('/^emd_/', $match_tag)) {
@@ -307,4 +317,89 @@ function emd_get_meta_operator($opr) {
 	$operators['less_than_eq'] = '<=';
 	$operators['greater_than_eq'] = '>=';
 	return $operators[$opr];
+}
+add_action('wp_ajax_emd_check_unique','emd_check_unique');
+/**
+ * Check unique keys
+ *
+ * @since WPAS 4.0
+ *
+ * @return bool $response
+ */
+function emd_check_unique() {
+	$response = false;
+	$post_id = '';
+	$form_data = isset($_GET['data_input']) ? $_GET['data_input'] : '';
+	$post_type = isset($_GET['ptype']) ? $_GET['ptype'] : '';
+	$myapp = isset($_GET['myapp']) ? $_GET['myapp'] : '';
+	$ent_list = get_option($myapp . "_ent_list");
+	$uniq_fields = $ent_list[$post_type]['unique_keys'];
+	if(!is_array($form_data)){
+		parse_str(stripslashes($form_data),$form_arr);
+	}
+	else {
+		$form_arr = $form_data;
+	}
+	foreach ($form_arr as $fkey => $myform_field) {
+		if (in_array($fkey, $uniq_fields)) {
+			$data[$fkey] = $myform_field;
+		}
+		if ($fkey == 'post_ID') {
+			$post_id = $myform_field;
+		}
+	}
+	if (!empty($data) && !empty($post_type)) {
+		$response = emd_check_uniq_from_wpdb($data, $post_id, $post_type);
+	}
+	echo $response;
+	die();
+}
+/**
+ * Sql query to check unique keys
+ *
+ * @since WPAS 4.0
+ *
+ * @return bool $response
+ */
+function emd_check_uniq_from_wpdb($data, $post_id, $post_type) {
+	global $wpdb;
+	$where = "";
+	$join = "";
+	$count = 1;
+	foreach ($data as $key => $val) {
+		$join.= " LEFT JOIN " . $wpdb->postmeta . " pm" . $count . " ON p.ID = pm" . $count . ".post_id";
+		$where.= " pm" . $count . ".meta_key='" . $key . "' AND pm" . $count . ".meta_value='" . $val . "' AND ";
+		$count++;
+	}
+	$where = rtrim($where, "AND");
+	$result_arr = $wpdb->get_results("SELECT p.ID FROM " . $wpdb->posts . " p " . $join . " WHERE " . $where . " p.post_type = '" . $post_type . "'", ARRAY_A);
+	if (empty($result_arr)) {
+		return true;
+	} elseif (!empty($post_id) && $result_arr[0]['ID'] == $post_id) {
+		return true;
+	}
+	return false;
+}
+/**
+ * Enqueue if allview css is not enqueued
+ *
+ * @since WPAS 4.5
+ *
+ */
+function emd_enq_allview(){
+        if(!wp_style_is('allview-css','enqueued')){
+                wp_enqueue_style('allview-css');
+        }
+}
+/**
+ * Show insert into post button for media uploads
+ *
+ * @since WPAS 4.5
+ * @param array $args
+ * @return array $args
+ *
+ */
+function emd_media_item_args($args){
+        $args['send'] = true;
+        return $args;
 }

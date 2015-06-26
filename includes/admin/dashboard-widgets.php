@@ -3,7 +3,7 @@
  * Admin Dashboard Functions
  *
  * @package WP_ECONTACT
- * @version 1.0.0
+ * @version 2.0.0
  * @since WPAS 4.0
  */
 if (!defined('ABSPATH')) exit;
@@ -36,6 +36,7 @@ function wp_econtact_recent_dash_contacts_dwidget() {
 	);
 	$args['fname'] = 'wp_econtact_recent_dash_contacts_layout';
 	$args['app'] = 'wp_econtact';
+	$args['filter'] = '';
 	emd_dashboard_widget('wp_econtact_recent_dash_contacts', 'entity', $args);
 }
 /**

@@ -25,33 +25,24 @@ required:false,
 'contact_country':{
 required:false,
 },
-emd_contact_first_name : {
-required  : true,
+emd_contact_first_name:{
 },
-emd_contact_last_name : {
-required  : true,
+emd_contact_last_name:{
 },
-emd_contact_email : {
-required  : true,
+emd_contact_email:{
 email  : true,
 },
-emd_contact_phone : {
-required  : false,
+emd_contact_phone:{
 },
-emd_contact_address : {
-required  : false,
+emd_contact_address:{
 },
-emd_contact_city : {
-required  : false,
+emd_contact_city:{
 },
-emd_contact_zipcode : {
-required  : false,
+emd_contact_zipcode:{
 },
-blt_title : {
-required  : true,
+blt_title:{
 },
-blt_content : {
-required  : true,
+blt_content:{
 },
 },
 success: function(label) {
@@ -76,5 +67,8 @@ else {
 error.insertAfter(element.parent());
 }
 },
+});
+$.each(contact_submit_vars.contact_submit.req, function (ind, val){
+     $("#"+val).rules("add","required");      
 });
 });

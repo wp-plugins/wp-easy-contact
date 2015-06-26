@@ -3,7 +3,7 @@
  * Enqueue Scripts Functions
  *
  * @package WP_ECONTACT
- * @version 1.0.0
+ * @version 2.0.0
  * @since WPAS 4.0
  */
 if (!defined('ABSPATH')) exit;
@@ -16,7 +16,11 @@ add_action('admin_enqueue_scripts', 'wp_econtact_load_admin_enq');
  *
  */
 function wp_econtact_load_admin_enq($hook) {
-	if ($hook == 'toplevel_page_wp_econtact' || $hook == 'wp-easy-contact_page_wp_econtact_notify') {
+	global $typenow;
+	if ($hook == 'edit-tags.php') {
+		return;
+	}
+	if ($hook == 'toplevel_page_wp_econtact' || $hook == 'wp-easy-contact_page_wp_econtact_notify' || $hook == 'wp-easy-contact_page_wp_econtact_settings') {
 		wp_enqueue_script('accordion');
 		return;
 	} else if (in_array($hook, Array(
@@ -27,8 +31,7 @@ function wp_econtact_load_admin_enq($hook) {
 		wp_enqueue_style('admin-tabs', WP_ECONTACT_PLUGIN_URL . 'assets/css/admin-store.css');
 		return;
 	}
-	global $post;
-	if (isset($post) && in_array($post->post_type, Array(
+	if (in_array($typenow, Array(
 		'emd_contact'
 	))) {
 		$theme_changer_enq = 1;
@@ -37,14 +40,35 @@ function wp_econtact_load_admin_enq($hook) {
 		$sing_enq = 0;
 		$tab_enq = 0;
 		if ($hook == 'post.php' || $hook == 'post-new.php') {
-			$unique_vars['msg'] = __('Please enter a unique value.', 'emd-plugins');
+			$unique_vars['msg'] = __('Please enter a unique value.', 'wp-econtact');
+			$unique_vars['reqtxt'] = __('required', 'wp-econtact');
+			$unique_vars['app_name'] = 'wp_econtact';
+			$ent_list = get_option('wp_econtact_ent_list');
+			if (!empty($ent_list[$typenow])) {
+				$unique_vars['keys'] = $ent_list[$typenow]['unique_keys'];
+				if (!empty($ent_list[$typenow]['req_blt'])) {
+					$unique_vars['req_blt_tax'] = $ent_list[$typenow]['req_blt'];
+				}
+			}
+			$tax_list = get_option('wp_econtact_tax_list');
+			if (!empty($tax_list[$typenow])) {
+				foreach ($tax_list[$typenow] as $txn_name => $txn_val) {
+					if ($txn_val['required'] == 1) {
+						$unique_vars['req_blt_tax'][$txn_name] = Array(
+							'hier' => $txn_val['hier'],
+							'type' => $txn_val['type'],
+							'label' => $txn_val['label'] . ' ' . __('Taxonomy', 'wp-econtact')
+						);
+					}
+				}
+			}
 			wp_enqueue_script('unique_validate-js', WP_ECONTACT_PLUGIN_URL . 'assets/js/unique_validate.js', array(
 				'jquery',
 				'jquery-validate'
 			) , WP_ECONTACT_VERSION, true);
 			wp_localize_script("unique_validate-js", 'unique_vars', $unique_vars);
 		}
-		switch ($post->post_type) {
+		switch ($typenow) {
 			case 'emd_contact':
 				$sing_enq = 1;
 			break;
@@ -96,20 +120,15 @@ function wp_econtact_frontend_scripts() {
 		$local_vars['validate_msg']['min'] = __('Please enter a value greater than or equal to {0}.', 'emd-plugins');
 		$local_vars['unique_msg'] = __('Please enter a unique value.', 'emd-plugins');
 		$wpas_shc_list = get_option('wp_econtact_shc_list');
-		$check_content = "";
-		if (!is_author() && !is_tax()) {
-			$check_content = get_post(get_the_ID())->post_content;
-		}
-		if (!empty($check_content) && has_shortcode($check_content, 'contact_submit')) {
-			wp_enqueue_script('jquery');
-			wp_enqueue_script('jvalidate-js', $dir_url . 'assets/ext/jvalidate1111/wpas.validate.min.js', array(
-				'jquery'
-			));
-			wp_enqueue_style('wpasui', WP_ECONTACT_PLUGIN_URL . 'assets/ext/wpas-jui/wpas-jui.min.css');
-			wp_enqueue_style('contact-submit-forms', $dir_url . 'assets/css/contact-submit-forms.css');
-			wp_enqueue_script('contact-submit-forms-js', $dir_url . 'assets/js/contact-submit-forms.js');
-			wp_localize_script('contact-submit-forms-js', 'contact_submit_vars', $local_vars);
-		}
+		$local_vars['contact_submit'] = emd_get_form_req_hide_vars('wp_econtact', 'contact_submit');
+		wp_register_style('contact-submit-forms', $dir_url . 'assets/css/contact-submit-forms.css');
+		wp_register_script('contact-submit-forms-js', $dir_url . 'assets/js/contact-submit-forms.js');
+		wp_localize_script('contact-submit-forms-js', 'contact_submit_vars', $local_vars);
+		wp_register_script('jvalidate-js', $dir_url . 'assets/ext/jvalidate1111/wpas.validate.min.js', array(
+			'jquery'
+		));
+		wp_register_style('wpasui', WP_ECONTACT_PLUGIN_URL . 'assets/ext/wpas-jui/wpas-jui.min.css');
+		wp_register_style('allview-css', $dir_url . '/assets/css/allview.css');
 		return;
 	}
 	if (is_single() && get_post_type() == 'emd_contact') {

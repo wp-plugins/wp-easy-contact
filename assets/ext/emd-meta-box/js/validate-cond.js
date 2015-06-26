@@ -20,9 +20,11 @@ jQuery( document ).ready( function( $ )
 		$form.siblings( '#message' ).remove();
 		$form.before( '<div id="message" class="error"><p>' + emd_mb.summaryMessage + '</p></div>' );
 	};
-
+	
 	//added for validation to work on select2 (required and selects)
 	emd_mb.validationOptions.ignore= null;
 	$.extend($.validator.messages,validate_msg);
-	$form.validate( emd_mb.validationOptions );
+
+	$form.validate(emd_mb.validationOptions );
+
 } );

@@ -7,114 +7,138 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-03-05T12:27:21-05:00\n"
-"POT-Creation-Date: 2015-03-05T12:27:21-05:00\n"
+"PO-Revision-Date: 2015-06-25T16:36:27-04:00\n"
+"POT-Creation-Date: 2015-06-25T16:36:27-04:00\n"
 
-#: wp-easy-contact/forms/contact-submit.php:16
+#: wp-easy-contact/forms/contact-submit.php:21
 msgid "First Name"
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:18
+#: wp-easy-contact/forms/contact-submit.php:23
 msgid "Please enter your first name."
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:19
+#: wp-easy-contact/forms/contact-submit.php:25
 msgid "First Name field is required"
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:33
+#: wp-easy-contact/forms/contact-submit.php:44
 msgid "Last Name"
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:35
+#: wp-easy-contact/forms/contact-submit.php:46
 msgid "Please enter your last name."
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:36
+#: wp-easy-contact/forms/contact-submit.php:48
 msgid "Last Name field is required"
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:50
+#: wp-easy-contact/forms/contact-submit.php:67
 msgid "Email"
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:52
+#: wp-easy-contact/forms/contact-submit.php:69
 msgid "Please enter your email address."
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:53
+#: wp-easy-contact/forms/contact-submit.php:71
 msgid "Email field is required"
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:67
+#: wp-easy-contact/forms/contact-submit.php:90
 msgid "Phone"
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:69
+#: wp-easy-contact/forms/contact-submit.php:92
 msgid "Please enter your phone or mobile."
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:81
+#: wp-easy-contact/forms/contact-submit.php:94
+msgid "Phone field is required"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:113
 msgid "Address"
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:83
+#: wp-easy-contact/forms/contact-submit.php:115
 msgid "Please enter your mailing address."
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:95
+#: wp-easy-contact/forms/contact-submit.php:117
+msgid "Address field is required"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:136
 msgid "City"
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:97
+#: wp-easy-contact/forms/contact-submit.php:138
 msgid "Please enter your city."
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:109
+#: wp-easy-contact/forms/contact-submit.php:140
+msgid "City field is required"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:159
 msgid "State"
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:111
+#: wp-easy-contact/forms/contact-submit.php:161
 msgid "Please enter your state you reside in."
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:123
+#: wp-easy-contact/forms/contact-submit.php:163
+msgid "State field is required"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:182
 msgid "Zip Code"
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:125
+#: wp-easy-contact/forms/contact-submit.php:184
 msgid "Please enter your zip code."
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:137
-msgid "Countries"
+#: wp-easy-contact/forms/contact-submit.php:186
+msgid "Zip Code field is required"
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:139
+#: wp-easy-contact/forms/contact-submit.php:205
+msgid "Country"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:207
 msgid "Please enter your country you reside in."
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:151
+#: wp-easy-contact/forms/contact-submit.php:209
+msgid "Country field is required"
+msgstr ""
+
+#: wp-easy-contact/forms/contact-submit.php:228
 msgid "Subject"
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:153
+#: wp-easy-contact/forms/contact-submit.php:231
 msgid "Subject field is required"
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:167
+#: wp-easy-contact/forms/contact-submit.php:250
 msgid "Message"
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:169
+#: wp-easy-contact/forms/contact-submit.php:253
 msgid "Message field is required"
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:189
+#: wp-easy-contact/forms/contact-submit.php:277
 msgid "Please enter the characters with black color in the image above."
 msgstr ""
 
-#: wp-easy-contact/forms/contact-submit.php:192
+#: wp-easy-contact/forms/contact-submit.php:280
 msgid "Security Code field is required"
 msgstr ""
 
@@ -144,7 +168,7 @@ msgid "Please enter your first name. First Name is a required field. First Name 
 msgstr ""
 
 #: wp-easy-contact/includes/admin/glossary.php:35
-msgid "Please enter your last name. Last Name is a required field. Last Name does not have a default value. "
+msgid "Please enter your last name. Last Name does not have a default value. "
 msgstr ""
 
 #: wp-easy-contact/includes/admin/glossary.php:38
@@ -209,15 +233,15 @@ msgid " Form Submitted IP is filterable in the admin area. Form Submitted IP doe
 msgstr ""
 
 #: wp-easy-contact/includes/admin/glossary.php:72
-msgid "Please enter your country you reside in. Countries accepts multiple values like tags"
+msgid "Please enter your country you reside in. Country accepts multiple values like tags"
 msgstr ""
 
 #: wp-easy-contact/includes/admin/glossary.php:72
-msgid "Countries does not have a default value"
+msgid "Country does not have a default value"
 msgstr ""
 
 #: wp-easy-contact/includes/admin/glossary.php:72
-msgid "The following are the preset values for <b>Countries:</b>"
+msgid "The following are the preset values for <b>Country:</b>"
 msgstr ""
 
 #: wp-easy-contact/includes/admin/glossary.php:72
@@ -1637,18 +1661,6 @@ msgstr ""
 msgid "Activate License"
 msgstr ""
 
-#: wp-easy-contact/includes/admin/misc-functions.php:32
-msgid "Title"
-msgstr ""
-
-#: wp-easy-contact/includes/admin/misc-functions.php:42
-msgid "Content"
-msgstr ""
-
-#: wp-easy-contact/includes/admin/misc-functions.php:52
-msgid "required"
-msgstr ""
-
 #: wp-easy-contact/includes/admin/store-functions.php:22
 #: wp-easy-contact/includes/admin/store-functions.php:42
 msgid "Browse All"
@@ -1686,43 +1698,61 @@ msgstr ""
 msgid "Like our plugin? Leave us a review"
 msgstr ""
 
-#: wp-easy-contact/includes/class-install-deactivate.php:232
+#: wp-easy-contact/includes/class-install-deactivate.php:246
+msgid "Title"
+msgstr ""
+
+#: wp-easy-contact/includes/class-install-deactivate.php:249
+msgid "Content"
+msgstr ""
+
+#: wp-easy-contact/includes/class-install-deactivate.php:260
 msgid "Contact Form"
 msgstr ""
 
-#: wp-easy-contact/includes/class-install-deactivate.php:310
+#: wp-easy-contact/includes/class-install-deactivate.php:351
+msgid "Unique contact id incremented by one to keep tract of communications"
+msgstr ""
+
+#: wp-easy-contact/includes/class-install-deactivate.php:476
 msgid "States"
 msgstr ""
 
-#: wp-easy-contact/includes/class-install-deactivate.php:315
-msgid "Country"
+#: wp-easy-contact/includes/class-install-deactivate.php:484
+msgid "Countries"
 msgstr ""
 
-#: wp-easy-contact/includes/class-install-deactivate.php:320
+#: wp-easy-contact/includes/class-install-deactivate.php:492
 msgid "Contact Tags"
 msgstr ""
 
-#: wp-easy-contact/includes/class-install-deactivate.php:413
+#: wp-easy-contact/includes/class-install-deactivate.php:586
 msgid "New To WP Easy Contact? Review the documentation!"
 msgstr ""
 
-#: wp-easy-contact/includes/class-install-deactivate.php:413
+#: wp-easy-contact/includes/class-install-deactivate.php:586
+#: wp-easy-contact/includes/class-install-deactivate.php:598
 msgid "&#187;"
 msgstr ""
 
-#: wp-easy-contact/includes/class-install-deactivate.php:413
+#: wp-easy-contact/includes/class-install-deactivate.php:586
+#: wp-easy-contact/includes/class-install-deactivate.php:598
 msgid "Dismiss"
 msgstr ""
 
-#: wp-easy-contact/includes/class-install-deactivate.php:419
+#: wp-easy-contact/includes/class-install-deactivate.php:598
+msgid "Upgrade WP Easy Contact Now!"
+msgstr ""
+
+#: wp-easy-contact/includes/class-install-deactivate.php:604
 msgid "Welcome to WP Easy Contact"
 msgstr ""
 
-#: wp-easy-contact/includes/class-install-deactivate.php:420
+#: wp-easy-contact/includes/class-install-deactivate.php:605
 msgid "Setup WP Easy Contact Pages"
 msgstr ""
 
-#: wp-easy-contact/includes/class-install-deactivate.php:420
+#: wp-easy-contact/includes/class-install-deactivate.php:605
 msgid "Skip setup"
 msgstr ""
 
@@ -1730,292 +1760,320 @@ msgstr ""
 msgid "The most recent contacts"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:172
-#: wp-easy-contact/includes/entities/class-emd-contact.php:1572
+#: wp-easy-contact/includes/entities/class-emd-contact.php:183
+#: wp-easy-contact/includes/entities/class-emd-contact.php:1584
 msgid "Contact"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:173
+#: wp-easy-contact/includes/entities/class-emd-contact.php:184
 msgid "Add New"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:174
+#: wp-easy-contact/includes/entities/class-emd-contact.php:185
 msgid "Add New Contact"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:175
+#: wp-easy-contact/includes/entities/class-emd-contact.php:186
 msgid "Edit Contact"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:176
+#: wp-easy-contact/includes/entities/class-emd-contact.php:187
 msgid "New Contact"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:177
+#: wp-easy-contact/includes/entities/class-emd-contact.php:188
 msgid "All Contacts"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:178
+#: wp-easy-contact/includes/entities/class-emd-contact.php:189
 msgid "View Contact"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:179
+#: wp-easy-contact/includes/entities/class-emd-contact.php:190
 msgid "Search Contacts"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:180
+#: wp-easy-contact/includes/entities/class-emd-contact.php:191
 msgid "No Contacts Found"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:181
+#: wp-easy-contact/includes/entities/class-emd-contact.php:192
 msgid "No Contacts Found In Trash"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:211
-msgid "Search Country"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:212
-msgid "Popular Country"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:213
-#: wp-easy-contact/includes/entities/class-emd-contact.php:251
-#: wp-easy-contact/includes/entities/class-emd-contact.php:289
-msgid "All"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:216
-msgid "Edit Countries"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:217
-msgid "Update Countries"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:218
-msgid "Add New Countries"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:219
-msgid "Add New Countries Name"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:220
-msgid "Seperate Country with commas"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:221
-msgid "Add or Remove Country"
-msgstr ""
-
 #: wp-easy-contact/includes/entities/class-emd-contact.php:222
-msgid "Choose from the most used Country"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:249
-msgid "Search Contact Tags"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:250
-msgid "Popular Contact Tags"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:254
-msgid "Edit Contact Tag"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:255
-msgid "Update Contact Tag"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:256
-msgid "Add New Contact Tag"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:257
-msgid "Add New Contact Tag Name"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:258
-msgid "Seperate Contact Tags with commas"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:259
-msgid "Add or Remove Contact Tags"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:260
-msgid "Choose from the most used Contact Tags"
-msgstr ""
-
-#: wp-easy-contact/includes/entities/class-emd-contact.php:287
 msgid "Search States"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:288
+#: wp-easy-contact/includes/entities/class-emd-contact.php:223
 msgid "Popular States"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:292
+#: wp-easy-contact/includes/entities/class-emd-contact.php:224
+#: wp-easy-contact/includes/entities/class-emd-contact.php:263
+#: wp-easy-contact/includes/entities/class-emd-contact.php:302
+msgid "All"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:227
 msgid "Edit State"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:293
+#: wp-easy-contact/includes/entities/class-emd-contact.php:228
 msgid "Update State"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:294
+#: wp-easy-contact/includes/entities/class-emd-contact.php:229
 msgid "Add New State"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:295
+#: wp-easy-contact/includes/entities/class-emd-contact.php:230
 msgid "Add New State Name"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:296
+#: wp-easy-contact/includes/entities/class-emd-contact.php:231
 msgid "Seperate States with commas"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:297
+#: wp-easy-contact/includes/entities/class-emd-contact.php:232
 msgid "Add or Remove States"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:298
+#: wp-easy-contact/includes/entities/class-emd-contact.php:233
 msgid "Choose from the most used States"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:1576
+#: wp-easy-contact/includes/entities/class-emd-contact.php:261
+msgid "Search Countries"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:262
+msgid "Popular Countries"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:266
+msgid "Edit Country"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:267
+msgid "Update Country"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:268
+msgid "Add New Country"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:269
+msgid "Add New Country Name"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:270
+msgid "Seperate Countries with commas"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:271
+msgid "Add or Remove Countries"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:272
+msgid "Choose from the most used Countries"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:300
+msgid "Search Contact Tags"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:301
+msgid "Popular Contact Tags"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:305
+msgid "Edit Contact Tag"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:306
+msgid "Update Contact Tag"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:307
+msgid "Add New Contact Tag"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:308
+msgid "Add New Contact Tag Name"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:309
+msgid "Seperate Contact Tags with commas"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:310
+msgid "Add or Remove Contact Tags"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:311
+msgid "Choose from the most used Contact Tags"
+msgstr ""
+
+#: wp-easy-contact/includes/entities/class-emd-contact.php:1589
 msgid "Contact Info"
 msgstr ""
 
-#: wp-easy-contact/includes/entities/class-emd-contact.php:1646
-msgid "Unique contact id incremented by one to keep tract of communications"
-msgstr ""
-
-#: wp-easy-contact/includes/forms.php:54
+#: wp-easy-contact/includes/forms.php:76
 msgid "First Name is required"
 msgstr ""
 
-#: wp-easy-contact/includes/forms.php:68
+#: wp-easy-contact/includes/forms.php:98
 msgid "Last Name is required"
 msgstr ""
 
-#: wp-easy-contact/includes/forms.php:82
-msgid "Email is required"
-msgstr ""
-
-#: wp-easy-contact/includes/forms.php:86
+#: wp-easy-contact/includes/forms.php:117
 msgid "Email: Please enter a valid email address"
 msgstr ""
 
-#: wp-easy-contact/includes/forms.php:121
-#: wp-easy-contact/includes/forms.php:147
+#: wp-easy-contact/includes/forms.php:124
+msgid "Email is required"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:146
+msgid "Phone is required"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:168
+msgid "Address is required"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:190
+msgid "City is required"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:202
+#: wp-easy-contact/includes/forms.php:254
 msgid "Please Select"
 msgstr ""
 
-#: wp-easy-contact/includes/forms.php:170
+#: wp-easy-contact/includes/forms.php:220
+msgid "State is required!"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:242
+msgid "Zip Code is required"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:272
+msgid "Country is required!"
+msgstr ""
+
+#: wp-easy-contact/includes/forms.php:292
 msgid "Subject is required"
 msgstr ""
 
-#: wp-easy-contact/includes/forms.php:178
+#: wp-easy-contact/includes/forms.php:304
 msgid "Enter text ..."
 msgstr ""
 
-#: wp-easy-contact/includes/forms.php:185
+#: wp-easy-contact/includes/forms.php:313
 msgid "Message is required"
 msgstr ""
 
-#: wp-easy-contact/includes/forms.php:203
+#: wp-easy-contact/includes/forms.php:334
 msgid "Please enter the characters with black color."
 msgstr ""
 
-#: wp-easy-contact/includes/forms.php:205
+#: wp-easy-contact/includes/forms.php:336
 msgid "Code"
 msgstr ""
 
-#: wp-easy-contact/includes/forms.php:210
+#: wp-easy-contact/includes/forms.php:341
 msgid "Captcha is required"
 msgstr ""
 
-#: wp-easy-contact/includes/forms.php:214
+#: wp-easy-contact/includes/forms.php:345
 msgid "Characters from captcha image entered incorrectly!"
 msgstr ""
 
-#: wp-easy-contact/includes/forms.php:218
+#: wp-easy-contact/includes/forms.php:349
 msgid "Send"
 msgstr ""
 
-#: wp-easy-contact/includes/forms.php:239
+#: wp-easy-contact/includes/forms.php:375
 msgid "You are not allowed to access to this area. Please contact the site administrator."
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:40
-#: wp-easy-contact/includes/scripts.php:97
+#: wp-easy-contact/includes/scripts.php:43
+#: wp-easy-contact/includes/scripts.php:121
 msgid "Please enter a unique value."
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:81
+#: wp-easy-contact/includes/scripts.php:44
+msgid "required"
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:60
+msgid "Taxonomy"
+msgstr ""
+
+#: wp-easy-contact/includes/scripts.php:105
 msgid "This field is required."
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:82
+#: wp-easy-contact/includes/scripts.php:106
 msgid "Please fix this field."
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:83
+#: wp-easy-contact/includes/scripts.php:107
 msgid "Please enter a valid email address."
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:84
+#: wp-easy-contact/includes/scripts.php:108
 msgid "Please enter a valid URL."
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:85
+#: wp-easy-contact/includes/scripts.php:109
 msgid "Please enter a valid date."
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:86
+#: wp-easy-contact/includes/scripts.php:110
 msgid "Please enter a valid date ( ISO )"
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:87
+#: wp-easy-contact/includes/scripts.php:111
 msgid "Please enter a valid number."
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:88
+#: wp-easy-contact/includes/scripts.php:112
 msgid "Please enter only digits."
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:89
+#: wp-easy-contact/includes/scripts.php:113
 msgid "Please enter a valid credit card number."
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:90
+#: wp-easy-contact/includes/scripts.php:114
 msgid "Please enter the same value again."
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:91
+#: wp-easy-contact/includes/scripts.php:115
 msgid "Please enter no more than {0} characters."
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:92
+#: wp-easy-contact/includes/scripts.php:116
 msgid "Please enter at least {0} characters."
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:93
+#: wp-easy-contact/includes/scripts.php:117
 msgid "Please enter a value between {0} and {1} characters long."
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:94
+#: wp-easy-contact/includes/scripts.php:118
 msgid "Please enter a value between {0} and {1}."
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:95
+#: wp-easy-contact/includes/scripts.php:119
 msgid "Please enter a value less than or equal to {0}."
 msgstr ""
 
-#: wp-easy-contact/includes/scripts.php:96
+#: wp-easy-contact/includes/scripts.php:120
 msgid "Please enter a value greater than or equal to {0}."
 msgstr ""
 
@@ -2023,26 +2081,30 @@ msgstr ""
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: wp-easy-contact/wp-easy-contact.php:217
+#: wp-easy-contact/wp-easy-contact.php:219
 msgid "WP Easy Contact"
 msgstr ""
 
-#: wp-easy-contact/wp-easy-contact.php:221
+#: wp-easy-contact/wp-easy-contact.php:223
 msgid "Glossary"
 msgstr ""
 
-#: wp-easy-contact/wp-easy-contact.php:222
+#: wp-easy-contact/wp-easy-contact.php:224
+msgid "Settings"
+msgstr ""
+
+#: wp-easy-contact/wp-easy-contact.php:228
 msgid "Add-Ons"
 msgstr ""
 
-#: wp-easy-contact/wp-easy-contact.php:226
+#: wp-easy-contact/wp-easy-contact.php:232
 msgid "Designs"
 msgstr ""
 
-#: wp-easy-contact/wp-easy-contact.php:230
+#: wp-easy-contact/wp-easy-contact.php:236
 msgid "Support"
 msgstr ""
 
-#: wp-easy-contact/wp-easy-contact.php:246
+#: wp-easy-contact/wp-easy-contact.php:253
 msgid "Licenses"
 msgstr ""

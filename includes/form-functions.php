@@ -9,62 +9,6 @@
 // Exit if accessed directly
 if (!defined('ABSPATH')) exit;
 /**
- * Check unique keys
- *
- * @since WPAS 4.0
- *
- * @return bool $response
- */
-function emd_check_unique() {
-	$response = false;
-	$post_id = '';
-	$data_input = isset($_GET['data_input']) ? $_GET['data_input'] : '';
-	$post_type = isset($_GET['ptype']) ? $_GET['ptype'] : '';
-	$myapp = isset($_GET['myapp']) ? $_GET['myapp'] : '';
-	$ent_list = get_option($myapp . "_ent_list");
-	$uniq_fields = $ent_list[$post_type]['unique_keys'];
-	parse_str(stripslashes($data_input) , $form_arr);
-	foreach ($form_arr as $fkey => $myform_field) {
-		if (in_array($fkey, $uniq_fields)) {
-			$data[$fkey] = $myform_field;
-		}
-		if ($fkey == 'post_ID') {
-			$post_id = $myform_field;
-		}
-	}
-	if (!empty($data) && !empty($post_type)) {
-		$response = emd_check_uniq_from_wpdb($data, $post_id, $post_type);
-	}
-	echo $response;
-	die();
-}
-/**
- * Sql query to check unique keys
- *
- * @since WPAS 4.0
- *
- * @return bool $response
- */
-function emd_check_uniq_from_wpdb($data, $post_id, $post_type) {
-	global $wpdb;
-	$where = "";
-	$join = "";
-	$count = 1;
-	foreach ($data as $key => $val) {
-		$join.= " LEFT JOIN " . $wpdb->postmeta . " pm" . $count . " ON p.ID = pm" . $count . ".post_id";
-		$where.= " pm" . $count . ".meta_key='" . $key . "' AND pm" . $count . ".meta_value='" . $val . "' AND ";
-		$count++;
-	}
-	$where = rtrim($where, "AND");
-	$result_arr = $wpdb->get_results("SELECT p.ID FROM " . $wpdb->posts . " p " . $join . " WHERE " . $where . " p.post_type = '" . $post_type . "'", ARRAY_A);
-	if (empty($result_arr)) {
-		return true;
-	} elseif (!empty($post_id) && $result_arr[0]['ID'] == $post_id) {
-		return true;
-	}
-	return false;
-}
-/**
  * Check min max value for int/decimal fields
  *
  * @since WPAS 4.0
@@ -467,7 +411,7 @@ function emd_submit_form($myapp, $myentity, $post_status, $visitor_post_status, 
 	$attr_list = get_option($myapp . '_attr_list', Array());
 	$txn_list = get_option($myapp . '_tax_list', Array());
 	$rel_list = get_option($myapp . '_rel_list', Array());
-	if(!empty($txn_list)){
+	if(!empty($txn_list[$myentity])){
 		foreach ($txn_list[$myentity] as $mykey => $mytxn) {
 			if (!empty($mytxn['default'])) {
 				$default_txns[$mykey] = $mytxn['default'];
@@ -535,7 +479,7 @@ function emd_submit_form($myapp, $myentity, $post_status, $visitor_post_status, 
 	}
 	else {
 		$entity_post['post_status'] = $visitor_post_status;
-		$entity_post['post_author'] = 1;
+		$entity_post['post_author'] = $current_user_id;
 	}
 	if (!empty($blts)) {
 		foreach ($blts as $blt_key => $blt_val) {
@@ -549,13 +493,18 @@ function emd_submit_form($myapp, $myentity, $post_status, $visitor_post_status, 
 			$uniq_keys = $wpas_ent_list[$myentity]['unique_keys'];
 			$new_title = '';
 			foreach ($uniq_keys as $mykey) {
-				$new_title.= $entity_fields[$mykey] . " - ";
+				if($entity_fields[$mykey] != 'emd_autoinc'){
+					$new_title.= $entity_fields[$mykey] . " - ";
+				}
 			}
 			$entity_post['post_title'] = rtrim($new_title, ' - ');
 			$blts['blt_title'] = $entity_post['post_title'];
 		}
 	}
 	$id = wp_insert_post($entity_post);
+	if(empty($entity_post['post_title'])){
+		wp_update_post(Array('ID' => $id,'post_title'=>$id));
+	}
 	if (!empty($id)) {
 		if (!empty($default_list)) {
 			foreach ($default_list as $def_key => $def_value) {
@@ -690,4 +639,29 @@ function emd_builtin_posts_where($where, &$wp_query) {
 		}
 	}
 	return $where;
+}
+function emd_get_form_req_hide_vars($app,$fname){
+	$shc_list = get_option($app . '_shc_list');
+	$post_type = $shc_list['forms'][$fname]['ent'];
+	$attr_list = get_option($app . '_attr_list');
+	$glob_forms_list = get_option($app . '_glob_forms_list');
+	$req_arr= Array();
+	$hide_arr= Array();
+
+	foreach($glob_forms_list[$fname] as $fkey => $fval){
+		if(!empty($fval['req']) && $fval['req'] == 1){
+			if(!empty($attr_list[$post_type][$fkey]) && $attr_list[$post_type][$fkey]['display_type'] == 'checkbox'){
+				$req_arr[] = $fkey . "_1";
+			}
+			elseif($fkey != 'btn') {
+				$req_arr[] = $fkey;
+			}
+		}
+		if(!empty($fval['show']) && $fval['show'] == 0){
+			$hide_arr[] = $fkey;
+		}
+	}
+	$ret['req'] = $req_arr;
+	$ret['hide'] = $hide_arr;
+	return $ret;
 }

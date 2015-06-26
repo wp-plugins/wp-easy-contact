@@ -3,7 +3,7 @@
  * Entity Widget Classes
  *
  * @package WP_ECONTACT
- * @version 1.0.0
+ * @version 2.0.0
  * @since WPAS 4.0
  */
 if (!defined('ABSPATH')) exit;
@@ -42,6 +42,7 @@ class wp_econtact_recent_contacts_widget extends Emd_Widget {
 	 * @since WPAS 4.0
 	 */
 	public static function layout() {
+		global $post;
 		$layout = "<a href=\"" . get_permalink() . "\" title=\"" . esc_html(emd_mb_meta('emd_contact_email')) . "\">" . esc_html(emd_mb_meta('emd_contact_first_name')) . " " . esc_html(emd_mb_meta('emd_contact_last_name')) . "</a>";
 		return $layout;
 	}

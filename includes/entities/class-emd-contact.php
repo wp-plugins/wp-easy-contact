@@ -3,7 +3,7 @@
  * Entity Class
  *
  * @package WP_ECONTACT
- * @version 1.0.0
+ * @version 2.0.0
  * @since WPAS 4.0
  */
 if (!defined('ABSPATH')) exit;
@@ -16,7 +16,7 @@ class Emd_Contact extends Emd_Entity {
 	protected $textdomain = 'wp-econtact';
 	protected $sing_label;
 	protected $plural_label;
-	private $boxes = Array();
+	protected $menu_entity;
 	/**
 	 * Initialize entity class
 	 *
@@ -27,6 +27,10 @@ class Emd_Contact extends Emd_Entity {
 		add_action('init', array(
 			$this,
 			'set_filters'
+		));
+		add_action('admin_init', array(
+			$this,
+			'set_metabox'
 		));
 		add_filter('post_updated_messages', array(
 			$this,
@@ -59,7 +63,7 @@ class Emd_Contact extends Emd_Entity {
 				)) && !in_array($mybox_field['type'], Array(
 					'textarea',
 					'wysiwyg'
-				))) {
+				)) && $mybox_field['list_visible'] == 1) {
 					$columns[$fkey] = $mybox_field['name'];
 				}
 			}
@@ -157,6 +161,13 @@ class Emd_Contact extends Emd_Entity {
 					$value = implode(', ', $select_list);
 				}
 			break;
+			case 'checkbox':
+				if ($value == 1) {
+					$value = '<span class="dashicons dashicons-yes"></span>';
+				} elseif ($value == 0) {
+					$value = '<span class="dashicons dashicons-no-alt"></span>';
+				}
+			break;
 		}
 		echo $value;
 	}
@@ -205,22 +216,61 @@ class Emd_Contact extends Emd_Entity {
 				'editor',
 			)
 		));
-		$contact_country_nohr_labels = array(
-			'name' => __('Country', 'wp-econtact') ,
-			'singular_name' => __('Countries', 'wp-econtact') ,
-			'search_items' => __('Search Country', 'wp-econtact') ,
-			'popular_items' => __('Popular Country', 'wp-econtact') ,
+		$contact_state_nohr_labels = array(
+			'name' => __('States', 'wp-econtact') ,
+			'singular_name' => __('State', 'wp-econtact') ,
+			'search_items' => __('Search States', 'wp-econtact') ,
+			'popular_items' => __('Popular States', 'wp-econtact') ,
 			'all_items' => __('All', 'wp-econtact') ,
 			'parent_item' => null,
 			'parent_item_colon' => null,
-			'edit_item' => __('Edit Countries', 'wp-econtact') ,
-			'update_item' => __('Update Countries', 'wp-econtact') ,
-			'add_new_item' => __('Add New Countries', 'wp-econtact') ,
-			'new_item_name' => __('Add New Countries Name', 'wp-econtact') ,
-			'separate_items_with_commas' => __('Seperate Country with commas', 'wp-econtact') ,
-			'add_or_remove_items' => __('Add or Remove Country', 'wp-econtact') ,
-			'choose_from_most_used' => __('Choose from the most used Country', 'wp-econtact') ,
-			'menu_name' => __('Country', 'wp-econtact') ,
+			'edit_item' => __('Edit State', 'wp-econtact') ,
+			'update_item' => __('Update State', 'wp-econtact') ,
+			'add_new_item' => __('Add New State', 'wp-econtact') ,
+			'new_item_name' => __('Add New State Name', 'wp-econtact') ,
+			'separate_items_with_commas' => __('Seperate States with commas', 'wp-econtact') ,
+			'add_or_remove_items' => __('Add or Remove States', 'wp-econtact') ,
+			'choose_from_most_used' => __('Choose from the most used States', 'wp-econtact') ,
+			'menu_name' => __('States', 'wp-econtact') ,
+		);
+		register_taxonomy('contact_state', array(
+			'emd_contact'
+		) , array(
+			'hierarchical' => false,
+			'labels' => $contact_state_nohr_labels,
+			'public' => true,
+			'show_ui' => true,
+			'show_in_nav_menus' => true,
+			'show_in_menu' => true,
+			'show_tagcloud' => true,
+			'update_count_callback' => '_update_post_term_count',
+			'query_var' => true,
+			'rewrite' => array(
+				'slug' => 'contact_state'
+			) ,
+			'capabilities' => array(
+				'manage_terms' => 'manage_contact_state',
+				'edit_terms' => 'edit_contact_state',
+				'delete_terms' => 'delete_contact_state',
+				'assign_terms' => 'assign_contact_state'
+			) ,
+		));
+		$contact_country_nohr_labels = array(
+			'name' => __('Countries', 'wp-econtact') ,
+			'singular_name' => __('Country', 'wp-econtact') ,
+			'search_items' => __('Search Countries', 'wp-econtact') ,
+			'popular_items' => __('Popular Countries', 'wp-econtact') ,
+			'all_items' => __('All', 'wp-econtact') ,
+			'parent_item' => null,
+			'parent_item_colon' => null,
+			'edit_item' => __('Edit Country', 'wp-econtact') ,
+			'update_item' => __('Update Country', 'wp-econtact') ,
+			'add_new_item' => __('Add New Country', 'wp-econtact') ,
+			'new_item_name' => __('Add New Country Name', 'wp-econtact') ,
+			'separate_items_with_commas' => __('Seperate Countries with commas', 'wp-econtact') ,
+			'add_or_remove_items' => __('Add or Remove Countries', 'wp-econtact') ,
+			'choose_from_most_used' => __('Choose from the most used Countries', 'wp-econtact') ,
+			'menu_name' => __('Countries', 'wp-econtact') ,
 		);
 		register_taxonomy('contact_country', array(
 			'emd_contact'
@@ -230,6 +280,7 @@ class Emd_Contact extends Emd_Entity {
 			'public' => true,
 			'show_ui' => true,
 			'show_in_nav_menus' => true,
+			'show_in_menu' => true,
 			'show_tagcloud' => true,
 			'update_count_callback' => '_update_post_term_count',
 			'query_var' => true,
@@ -268,6 +319,7 @@ class Emd_Contact extends Emd_Entity {
 			'public' => true,
 			'show_ui' => true,
 			'show_in_nav_menus' => true,
+			'show_in_menu' => true,
 			'show_tagcloud' => true,
 			'update_count_callback' => '_update_post_term_count',
 			'query_var' => true,
@@ -281,45 +333,265 @@ class Emd_Contact extends Emd_Entity {
 				'assign_terms' => 'assign_contact_tag'
 			) ,
 		));
-		$contact_state_nohr_labels = array(
-			'name' => __('States', 'wp-econtact') ,
-			'singular_name' => __('State', 'wp-econtact') ,
-			'search_items' => __('Search States', 'wp-econtact') ,
-			'popular_items' => __('Popular States', 'wp-econtact') ,
-			'all_items' => __('All', 'wp-econtact') ,
-			'parent_item' => null,
-			'parent_item_colon' => null,
-			'edit_item' => __('Edit State', 'wp-econtact') ,
-			'update_item' => __('Update State', 'wp-econtact') ,
-			'add_new_item' => __('Add New State', 'wp-econtact') ,
-			'new_item_name' => __('Add New State Name', 'wp-econtact') ,
-			'separate_items_with_commas' => __('Seperate States with commas', 'wp-econtact') ,
-			'add_or_remove_items' => __('Add or Remove States', 'wp-econtact') ,
-			'choose_from_most_used' => __('Choose from the most used States', 'wp-econtact') ,
-			'menu_name' => __('States', 'wp-econtact') ,
-		);
-		register_taxonomy('contact_state', array(
-			'emd_contact'
-		) , array(
-			'hierarchical' => false,
-			'labels' => $contact_state_nohr_labels,
-			'public' => true,
-			'show_ui' => true,
-			'show_in_nav_menus' => true,
-			'show_tagcloud' => true,
-			'update_count_callback' => '_update_post_term_count',
-			'query_var' => true,
-			'rewrite' => array(
-				'slug' => 'contact_state'
-			) ,
-			'capabilities' => array(
-				'manage_terms' => 'manage_contact_state',
-				'edit_terms' => 'edit_contact_state',
-				'delete_terms' => 'delete_contact_state',
-				'assign_terms' => 'assign_contact_state'
-			) ,
-		));
 		if (!get_option('wp_econtact_emd_contact_terms_init')) {
+			$set_tax_terms = Array(
+				Array(
+					'name' => __('AL', 'wp-econtact') ,
+					'slug' => sanitize_title('AL') ,
+					'desc' => __('Alabama', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('AK', 'wp-econtact') ,
+					'slug' => sanitize_title('AK') ,
+					'desc' => __('Alaska', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('AZ', 'wp-econtact') ,
+					'slug' => sanitize_title('AZ') ,
+					'desc' => __('Arizona', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('AR', 'wp-econtact') ,
+					'slug' => sanitize_title('AR') ,
+					'desc' => __('Arkansas', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('CA', 'wp-econtact') ,
+					'slug' => sanitize_title('CA') ,
+					'desc' => __('California', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('CO', 'wp-econtact') ,
+					'slug' => sanitize_title('CO') ,
+					'desc' => __('Colorado', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('CT', 'wp-econtact') ,
+					'slug' => sanitize_title('CT') ,
+					'desc' => __('Connecticut', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('DE', 'wp-econtact') ,
+					'slug' => sanitize_title('DE') ,
+					'desc' => __('Delaware', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('DC', 'wp-econtact') ,
+					'slug' => sanitize_title('DC') ,
+					'desc' => __('District of Columbia', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('FL', 'wp-econtact') ,
+					'slug' => sanitize_title('FL') ,
+					'desc' => __('Florida', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('GA', 'wp-econtact') ,
+					'slug' => sanitize_title('GA') ,
+					'desc' => __('Georgia', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('HI', 'wp-econtact') ,
+					'slug' => sanitize_title('HI') ,
+					'desc' => __('Hawaii', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('ID', 'wp-econtact') ,
+					'slug' => sanitize_title('ID') ,
+					'desc' => __('Idaho', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('IL', 'wp-econtact') ,
+					'slug' => sanitize_title('IL') ,
+					'desc' => __('Illinois', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('IN', 'wp-econtact') ,
+					'slug' => sanitize_title('IN') ,
+					'desc' => __('Indiana', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('IA', 'wp-econtact') ,
+					'slug' => sanitize_title('IA') ,
+					'desc' => __('Iowa', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('KS', 'wp-econtact') ,
+					'slug' => sanitize_title('KS') ,
+					'desc' => __('Kansas', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('KY', 'wp-econtact') ,
+					'slug' => sanitize_title('KY') ,
+					'desc' => __('Kentucky', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('LA', 'wp-econtact') ,
+					'slug' => sanitize_title('LA') ,
+					'desc' => __('Louisiana', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('ME', 'wp-econtact') ,
+					'slug' => sanitize_title('ME') ,
+					'desc' => __('Maine', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('MD', 'wp-econtact') ,
+					'slug' => sanitize_title('MD') ,
+					'desc' => __('Maryland', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('MA', 'wp-econtact') ,
+					'slug' => sanitize_title('MA') ,
+					'desc' => __('Massachusetts', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('MI', 'wp-econtact') ,
+					'slug' => sanitize_title('MI') ,
+					'desc' => __('Michigan', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('MN', 'wp-econtact') ,
+					'slug' => sanitize_title('MN') ,
+					'desc' => __('Minnesota', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('MS', 'wp-econtact') ,
+					'slug' => sanitize_title('MS') ,
+					'desc' => __('Mississippi', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('MO', 'wp-econtact') ,
+					'slug' => sanitize_title('MO') ,
+					'desc' => __('Missouri', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('MT', 'wp-econtact') ,
+					'slug' => sanitize_title('MT') ,
+					'desc' => __('Montana', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('NE', 'wp-econtact') ,
+					'slug' => sanitize_title('NE') ,
+					'desc' => __('Nebraska', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('NV', 'wp-econtact') ,
+					'slug' => sanitize_title('NV') ,
+					'desc' => __('Nevada', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('NH', 'wp-econtact') ,
+					'slug' => sanitize_title('NH') ,
+					'desc' => __('New Hampshire', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('NJ', 'wp-econtact') ,
+					'slug' => sanitize_title('NJ') ,
+					'desc' => __('New Jersey', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('NM', 'wp-econtact') ,
+					'slug' => sanitize_title('NM') ,
+					'desc' => __('New Mexico', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('NY', 'wp-econtact') ,
+					'slug' => sanitize_title('NY') ,
+					'desc' => __('New York', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('NC', 'wp-econtact') ,
+					'slug' => sanitize_title('NC') ,
+					'desc' => __('North Carolina', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('ND', 'wp-econtact') ,
+					'slug' => sanitize_title('ND') ,
+					'desc' => __('North Dakota', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('OH', 'wp-econtact') ,
+					'slug' => sanitize_title('OH') ,
+					'desc' => __('Ohio', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('OK', 'wp-econtact') ,
+					'slug' => sanitize_title('OK') ,
+					'desc' => __('Oklahoma', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('OR', 'wp-econtact') ,
+					'slug' => sanitize_title('OR') ,
+					'desc' => __('Oregon', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('PA', 'wp-econtact') ,
+					'slug' => sanitize_title('PA') ,
+					'desc' => __('Pennsylvania', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('RI', 'wp-econtact') ,
+					'slug' => sanitize_title('RI') ,
+					'desc' => __('Rhode Island', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('SC', 'wp-econtact') ,
+					'slug' => sanitize_title('SC') ,
+					'desc' => __('South Carolina', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('SD', 'wp-econtact') ,
+					'slug' => sanitize_title('SD') ,
+					'desc' => __('South Dakota', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('TN', 'wp-econtact') ,
+					'slug' => sanitize_title('TN') ,
+					'desc' => __('Tennessee', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('TX', 'wp-econtact') ,
+					'slug' => sanitize_title('TX') ,
+					'desc' => __('Texas', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('UT', 'wp-econtact') ,
+					'slug' => sanitize_title('UT') ,
+					'desc' => __('Utah', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('VT', 'wp-econtact') ,
+					'slug' => sanitize_title('VT') ,
+					'desc' => __('Vermont', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('VA', 'wp-econtact') ,
+					'slug' => sanitize_title('VA') ,
+					'desc' => __('Virginia', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('WA', 'wp-econtact') ,
+					'slug' => sanitize_title('WA') ,
+					'desc' => __('Washington', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('WV', 'wp-econtact') ,
+					'slug' => sanitize_title('WV') ,
+					'desc' => __('West Virginia', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('WI', 'wp-econtact') ,
+					'slug' => sanitize_title('WI') ,
+					'desc' => __('Wisconsin', 'wp-econtact')
+				) ,
+				Array(
+					'name' => __('WY', 'wp-econtact') ,
+					'slug' => sanitize_title('WY') ,
+					'desc' => __('Wyoming', 'wp-econtact')
+				)
+			);
+			self::set_taxonomy_init($set_tax_terms, 'contact_state');
 			$set_tax_terms = Array(
 				Array(
 					'name' => __('Afghanistan', 'wp-econtact') ,
@@ -1299,264 +1571,6 @@ class Emd_Contact extends Emd_Entity {
 				)
 			);
 			self::set_taxonomy_init($set_tax_terms, 'contact_country');
-			$set_tax_terms = Array(
-				Array(
-					'name' => __('AL', 'wp-econtact') ,
-					'slug' => sanitize_title('AL') ,
-					'desc' => __('Alabama', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('AK', 'wp-econtact') ,
-					'slug' => sanitize_title('AK') ,
-					'desc' => __('Alaska', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('AZ', 'wp-econtact') ,
-					'slug' => sanitize_title('AZ') ,
-					'desc' => __('Arizona', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('AR', 'wp-econtact') ,
-					'slug' => sanitize_title('AR') ,
-					'desc' => __('Arkansas', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('CA', 'wp-econtact') ,
-					'slug' => sanitize_title('CA') ,
-					'desc' => __('California', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('CO', 'wp-econtact') ,
-					'slug' => sanitize_title('CO') ,
-					'desc' => __('Colorado', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('CT', 'wp-econtact') ,
-					'slug' => sanitize_title('CT') ,
-					'desc' => __('Connecticut', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('DE', 'wp-econtact') ,
-					'slug' => sanitize_title('DE') ,
-					'desc' => __('Delaware', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('DC', 'wp-econtact') ,
-					'slug' => sanitize_title('DC') ,
-					'desc' => __('District of Columbia', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('FL', 'wp-econtact') ,
-					'slug' => sanitize_title('FL') ,
-					'desc' => __('Florida', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('GA', 'wp-econtact') ,
-					'slug' => sanitize_title('GA') ,
-					'desc' => __('Georgia', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('HI', 'wp-econtact') ,
-					'slug' => sanitize_title('HI') ,
-					'desc' => __('Hawaii', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('ID', 'wp-econtact') ,
-					'slug' => sanitize_title('ID') ,
-					'desc' => __('Idaho', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('IL', 'wp-econtact') ,
-					'slug' => sanitize_title('IL') ,
-					'desc' => __('Illinois', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('IN', 'wp-econtact') ,
-					'slug' => sanitize_title('IN') ,
-					'desc' => __('Indiana', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('IA', 'wp-econtact') ,
-					'slug' => sanitize_title('IA') ,
-					'desc' => __('Iowa', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('KS', 'wp-econtact') ,
-					'slug' => sanitize_title('KS') ,
-					'desc' => __('Kansas', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('KY', 'wp-econtact') ,
-					'slug' => sanitize_title('KY') ,
-					'desc' => __('Kentucky', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('LA', 'wp-econtact') ,
-					'slug' => sanitize_title('LA') ,
-					'desc' => __('Louisiana', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('ME', 'wp-econtact') ,
-					'slug' => sanitize_title('ME') ,
-					'desc' => __('Maine', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('MD', 'wp-econtact') ,
-					'slug' => sanitize_title('MD') ,
-					'desc' => __('Maryland', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('MA', 'wp-econtact') ,
-					'slug' => sanitize_title('MA') ,
-					'desc' => __('Massachusetts', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('MI', 'wp-econtact') ,
-					'slug' => sanitize_title('MI') ,
-					'desc' => __('Michigan', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('MN', 'wp-econtact') ,
-					'slug' => sanitize_title('MN') ,
-					'desc' => __('Minnesota', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('MS', 'wp-econtact') ,
-					'slug' => sanitize_title('MS') ,
-					'desc' => __('Mississippi', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('MO', 'wp-econtact') ,
-					'slug' => sanitize_title('MO') ,
-					'desc' => __('Missouri', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('MT', 'wp-econtact') ,
-					'slug' => sanitize_title('MT') ,
-					'desc' => __('Montana', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('NE', 'wp-econtact') ,
-					'slug' => sanitize_title('NE') ,
-					'desc' => __('Nebraska', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('NV', 'wp-econtact') ,
-					'slug' => sanitize_title('NV') ,
-					'desc' => __('Nevada', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('NH', 'wp-econtact') ,
-					'slug' => sanitize_title('NH') ,
-					'desc' => __('New Hampshire', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('NJ', 'wp-econtact') ,
-					'slug' => sanitize_title('NJ') ,
-					'desc' => __('New Jersey', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('NM', 'wp-econtact') ,
-					'slug' => sanitize_title('NM') ,
-					'desc' => __('New Mexico', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('NY', 'wp-econtact') ,
-					'slug' => sanitize_title('NY') ,
-					'desc' => __('New York', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('NC', 'wp-econtact') ,
-					'slug' => sanitize_title('NC') ,
-					'desc' => __('North Carolina', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('ND', 'wp-econtact') ,
-					'slug' => sanitize_title('ND') ,
-					'desc' => __('North Dakota', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('OH', 'wp-econtact') ,
-					'slug' => sanitize_title('OH') ,
-					'desc' => __('Ohio', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('OK', 'wp-econtact') ,
-					'slug' => sanitize_title('OK') ,
-					'desc' => __('Oklahoma', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('OR', 'wp-econtact') ,
-					'slug' => sanitize_title('OR') ,
-					'desc' => __('Oregon', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('PA', 'wp-econtact') ,
-					'slug' => sanitize_title('PA') ,
-					'desc' => __('Pennsylvania', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('RI', 'wp-econtact') ,
-					'slug' => sanitize_title('RI') ,
-					'desc' => __('Rhode Island', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('SC', 'wp-econtact') ,
-					'slug' => sanitize_title('SC') ,
-					'desc' => __('South Carolina', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('SD', 'wp-econtact') ,
-					'slug' => sanitize_title('SD') ,
-					'desc' => __('South Dakota', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('TN', 'wp-econtact') ,
-					'slug' => sanitize_title('TN') ,
-					'desc' => __('Tennessee', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('TX', 'wp-econtact') ,
-					'slug' => sanitize_title('TX') ,
-					'desc' => __('Texas', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('UT', 'wp-econtact') ,
-					'slug' => sanitize_title('UT') ,
-					'desc' => __('Utah', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('VT', 'wp-econtact') ,
-					'slug' => sanitize_title('VT') ,
-					'desc' => __('Vermont', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('VA', 'wp-econtact') ,
-					'slug' => sanitize_title('VA') ,
-					'desc' => __('Virginia', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('WA', 'wp-econtact') ,
-					'slug' => sanitize_title('WA') ,
-					'desc' => __('Washington', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('WV', 'wp-econtact') ,
-					'slug' => sanitize_title('WV') ,
-					'desc' => __('West Virginia', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('WI', 'wp-econtact') ,
-					'slug' => sanitize_title('WI') ,
-					'desc' => __('Wisconsin', 'wp-econtact')
-				) ,
-				Array(
-					'name' => __('WY', 'wp-econtact') ,
-					'slug' => sanitize_title('WY') ,
-					'desc' => __('Wyoming', 'wp-econtact')
-				)
-			);
-			self::set_taxonomy_init($set_tax_terms, 'contact_state');
 			update_option('wp_econtact_emd_contact_terms_init', true);
 		}
 	}
@@ -1567,10 +1581,9 @@ class Emd_Contact extends Emd_Entity {
 	 *
 	 */
 	public function set_filters() {
-		$search_args = array();
-		$filter_args = array();
 		$this->sing_label = __('Contact', 'wp-econtact');
 		$this->plural_label = __('Contacts', 'wp-econtact');
+		$this->menu_entity = 'emd_contact';
 		$this->boxes[] = array(
 			'id' => 'emd_contact_info_emd_contact_0',
 			'title' => __('Contact Info', 'wp-econtact') ,
@@ -1578,156 +1591,24 @@ class Emd_Contact extends Emd_Entity {
 				'emd_contact'
 			) ,
 			'context' => 'normal',
-			'fields' => array(
-				'emd_contact_first_name' => array(
-					'name' => __('First Name', 'wp-econtact') ,
-					'id' => 'emd_contact_first_name',
-					'type' => 'text',
-					'multiple' => false,
-					'desc' => __('Please enter your first name.', 'wp-econtact') ,
-					'class' => 'emd_contact_first_name',
-				) ,
-				'emd_contact_last_name' => array(
-					'name' => __('Last Name', 'wp-econtact') ,
-					'id' => 'emd_contact_last_name',
-					'type' => 'text',
-					'multiple' => false,
-					'desc' => __('Please enter your last name.', 'wp-econtact') ,
-					'class' => 'emd_contact_last_name',
-				) ,
-				'emd_contact_email' => array(
-					'name' => __('Email', 'wp-econtact') ,
-					'id' => 'emd_contact_email',
-					'type' => 'text',
-					'multiple' => false,
-					'desc' => __('Please enter your email address.', 'wp-econtact') ,
-					'class' => 'emd_contact_email',
-				) ,
-				'emd_contact_phone' => array(
-					'name' => __('Phone', 'wp-econtact') ,
-					'id' => 'emd_contact_phone',
-					'type' => 'text',
-					'multiple' => false,
-					'desc' => __('Please enter your phone or mobile.', 'wp-econtact') ,
-					'class' => 'emd_contact_phone',
-				) ,
-				'emd_contact_address' => array(
-					'name' => __('Address', 'wp-econtact') ,
-					'id' => 'emd_contact_address',
-					'type' => 'text',
-					'multiple' => false,
-					'desc' => __('Please enter your mailing address.', 'wp-econtact') ,
-					'class' => 'emd_contact_address',
-				) ,
-				'emd_contact_city' => array(
-					'name' => __('City', 'wp-econtact') ,
-					'id' => 'emd_contact_city',
-					'type' => 'text',
-					'multiple' => false,
-					'desc' => __('Please enter your city.', 'wp-econtact') ,
-					'class' => 'emd_contact_city',
-				) ,
-				'emd_contact_zipcode' => array(
-					'name' => __('Zip Code', 'wp-econtact') ,
-					'id' => 'emd_contact_zipcode',
-					'type' => 'text',
-					'multiple' => false,
-					'desc' => __('Please enter your zip code.', 'wp-econtact') ,
-					'class' => 'emd_contact_zipcode',
-				) ,
-				'emd_contact_id' => array(
-					'name' => __('ID', 'wp-econtact') ,
-					'id' => 'emd_contact_id',
-					'type' => 'hidden',
-					'hidden_func' => 'autoinc',
-					'autoinc_start' => 1,
-					'autoinc_incr' => 1,
-					'multiple' => false,
-					'desc' => __('Unique contact id incremented by one to keep tract of communications', 'wp-econtact') ,
-					'class' => 'emd_contact_id',
-				) ,
-				'wpas_form_name' => array(
-					'name' => __('Form Name', 'wp-econtact') ,
-					'id' => 'wpas_form_name',
-					'type' => 'hidden',
-					'no_update' => 1,
-					'multiple' => false,
-					'std' => 'admin',
-					'class' => 'wpas_form_name',
-				) ,
-				'wpas_form_submitted_by' => array(
-					'name' => __('Form Submitted By', 'wp-econtact') ,
-					'id' => 'wpas_form_submitted_by',
-					'type' => 'hidden',
-					'hidden_func' => 'user_login',
-					'no_update' => 1,
-					'multiple' => false,
-					'class' => 'wpas_form_submitted_by',
-				) ,
-				'wpas_form_submitted_ip' => array(
-					'name' => __('Form Submitted IP', 'wp-econtact') ,
-					'id' => 'wpas_form_submitted_ip',
-					'type' => 'hidden',
-					'hidden_func' => 'user_ip',
-					'no_update' => 1,
-					'multiple' => false,
-					'class' => 'wpas_form_submitted_ip',
-				) ,
-			) ,
-			'validation' => array(
-				'onfocusout' => false,
-				'onkeyup' => false,
-				'onclick' => false,
-				'rules' => array(
-					'emd_contact_first_name' => array(
-						'required' => true,
-					) ,
-					'emd_contact_last_name' => array(
-						'required' => true,
-					) ,
-					'emd_contact_email' => array(
-						'required' => true,
-						'email' => true,
-					) ,
-					'emd_contact_phone' => array(
-						'required' => false,
-					) ,
-					'emd_contact_address' => array(
-						'required' => false,
-					) ,
-					'emd_contact_city' => array(
-						'required' => false,
-					) ,
-					'emd_contact_zipcode' => array(
-						'required' => false,
-					) ,
-					'emd_contact_id' => array(
-						'required' => false,
-					) ,
-					'wpas_form_name' => array(
-						'required' => false,
-					) ,
-					'wpas_form_submitted_by' => array(
-						'required' => false,
-					) ,
-					'wpas_form_submitted_ip' => array(
-						'required' => false,
-					) ,
-				) ,
-			)
 		);
+		list($search_args, $filter_args) = $this->set_args_boxes();
 		if (!post_type_exists($this->post_type) || in_array($this->post_type, Array(
 			'post',
 			'page'
 		))) {
 			self::register();
 		}
-		global $pagenow;
-		if ('post-new.php' === $pagenow || 'post.php' === $pagenow) {
-			if (class_exists('EMD_Meta_Box') && is_array($this->boxes)) {
-				foreach ($this->boxes as $meta_box) {
-					new EMD_Meta_Box($meta_box);
-				}
+	}
+	/**
+	 * Initialize metaboxes
+	 * @since WPAS 4.5
+	 *
+	 */
+	public function set_metabox() {
+		if (class_exists('EMD_Meta_Box') && is_array($this->boxes)) {
+			foreach ($this->boxes as $meta_box) {
+				new EMD_Meta_Box($meta_box);
 			}
 		}
 	}
