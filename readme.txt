@@ -8,7 +8,7 @@ Tested up to: 4.2.4
 Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: cnotact, conact, contact, contact button, contact form, contact form plugin, contact me, contacts, contacts form plugin, contatc, copy, feedback, feedback form, form, post feedback, request, send, send copy, send messages, web-page feedback, contact form with captcha, captcha, contact list, contact form manager,contact manager, contact us, easy contact form, helpdesk, wordpress contact form, wp app studio, contact page, contact us form, signup form, contact form database, form database, save contact form, database
+Tags: cnotact, conact, contact, contact button, contact form, contact form plugin, contact me, contacts, contacts form plugin, contatc, copy, feedback, feedback form, form, post feedback, request, send, send copy, send messages, web-page feedback, contact form with captcha, captcha, contact list, contact form manager,contact manager, contact us, easy contact form, helpdesk, wordpress contact form, wp app studio, contact page, contact us form, signup form, contact form database, form database, save contact form, database, notification, contact form with google map,google map,google maps,easy contact form,map, contact form with map,social icons,facebook,twitter,linkedin,youtube,pinterest,google-plus,instagram,github,skype
 
 WP Easy Contact provides a very easy to use contact form which collects, displays, and stores the collected information.
 
