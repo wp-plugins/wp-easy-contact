@@ -1551,7 +1551,7 @@ class Zebra_Form
             }
             else
             {
-                $output = '<div id="success-error" class="well" style="display:none;"></div>' . $output;
+                $output = '<div id="' . $this->form_properties['name'] . '-success-error" class="well" style="display:none;"></div>' . $output;
             }
 	
 
@@ -1584,8 +1584,7 @@ class Zebra_Form
 
         // finish building the output
         $output = $output . $contents . '</form>';
-
-	$output .= '<div id="search-success-error" style="display:none;"></div>';
+	$output .= '<div id="' . $this->form_properties['name'] . '-search-success-error" class="search-success-error" style="display:none;"></div>';
 
 	if($clear_hide_form == 2 && empty($this->errors) && $this->form_properties['is_ajax']  == 0)
 	{

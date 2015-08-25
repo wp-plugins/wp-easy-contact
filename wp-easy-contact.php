@@ -3,7 +3,7 @@
  * Plugin Name: WP Easy Contact
  * Plugin URI: https://emarketdesign.com
  * Description: WP Easy Contact provides a contact form and stores the collected information in WordPress.
- * Version: 2.0.0
+ * Version: 2.1.0
  * Author: eMarket Design
  * Author URI: https://emarketdesign.com
  * Text Domain: wp-econtact
@@ -78,7 +78,7 @@ if (!class_exists('WP_Easy_Contact')):
 		 * @return void
 		 */
 		private function define_constants() {
-			define('WP_ECONTACT_VERSION', '2.0.0');
+			define('WP_ECONTACT_VERSION', '2.1.0');
 			define('WP_ECONTACT_AUTHOR', 'eMarket Design');
 			define('WP_ECONTACT_NAME', 'WP Easy Contact');
 			define('WP_ECONTACT_PLUGIN_FILE', __FILE__);

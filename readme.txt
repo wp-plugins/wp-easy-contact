@@ -4,8 +4,8 @@ Plugin URI: https://emdplugins.com
 Author URI: https://emarketdesign.com
 Donate link: https://emarketdesign.com/donate-emarket-design/
 Requires at least: 3.8
-Tested up to: 4.2.4
-Stable tag: 2.0.0
+Tested up to: 4.3.0
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: cnotact, conact, contact, contact button, contact form, contact form plugin, contact me, contacts, contacts form plugin, contatc, copy, feedback, feedback form, form, post feedback, request, send, send copy, send messages, web-page feedback, contact form with captcha, captcha, contact list, contact form manager,contact manager, contact us, easy contact form, helpdesk, wordpress contact form, wp app studio, contact page, contact us form, signup form, contact form database, form database, save contact form, database, notification, contact form with google map,google map,google maps,easy contact form,map, contact form with map,social icons,facebook,twitter,linkedin,youtube,pinterest,google-plus,instagram,github,skype
@@ -98,6 +98,8 @@ The simplest way to install is to click on 'Plugins' then 'Add' and type 'WP Eas
 6. WP Easy Contact Pro - upgrade your contact form to contact management system with best in class features
 
 == Changelog ==
+= 2.1.0 =
+* Fixed issues related to WordPress 4.3 upgrade
 = 2.0.0 =
 * Added settings page for form customization such as enable/disable fields, captcha and change field sizes
 * Made some fields optional so that they can be disabled

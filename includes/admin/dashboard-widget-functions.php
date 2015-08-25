@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) exit;
  */
 function emd_dashboard_widget($widget_id, $type, $args = Array() , $default = '') {
 	$dwidgets = get_option('dashboard_widget_options');
-	if ($type == 'admin') {
+	if ($type == 'admin' || $type == 'integration') {
 		$message = $default;
 		if (isset($dwidgets[$widget_id]) && isset($dwidgets[$widget_id]['message'])) {
 			$message = $dwidgets[$widget_id]['message'];
@@ -39,7 +39,9 @@ function emd_dashboard_widget($widget_id, $type, $args = Array() , $default = ''
 		if ($type == 'comment') {
 			echo emd_dashboard_comment_layout($total_items, $pids, $args);
 		} else {
+			echo '<div class="emd-container">' . $args['header'];
 			echo Emd_Widget::get_ent_widget_layout($total_items, $pids, $args);
+			echo $args['footer'] . '</div>';
 		}
 	}
 }

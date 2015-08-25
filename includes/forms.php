@@ -2,7 +2,7 @@
 /**
  * Setup and Process submit and search forms
  * @package WP_ECONTACT
- * @version 2.0.0
+ * @version 2.1.0
  * @since WPAS 4.0
  */
 if (!defined('ABSPATH')) exit;
@@ -59,7 +59,7 @@ function wp_econtact_set_contact_submit() {
 	));
 	if (!in_array('emd_contact_first_name', $req_hide_vars['hide'])) {
 		//text
-		$form->add('label', 'label_emd_contact_first_name', 'emd_contact_first_name', 'First Name', array(
+		$form->add('label', 'label_emd_contact_first_name', 'emd_contact_first_name', __('First Name', 'wp-econtact') , array(
 			'class' => 'control-label'
 		));
 		$obj = $form->add('text', 'emd_contact_first_name', '', array(
@@ -81,7 +81,7 @@ function wp_econtact_set_contact_submit() {
 	}
 	if (!in_array('emd_contact_last_name', $req_hide_vars['hide'])) {
 		//text
-		$form->add('label', 'label_emd_contact_last_name', 'emd_contact_last_name', 'Last Name', array(
+		$form->add('label', 'label_emd_contact_last_name', 'emd_contact_last_name', __('Last Name', 'wp-econtact') , array(
 			'class' => 'control-label'
 		));
 		$obj = $form->add('text', 'emd_contact_last_name', '', array(
@@ -103,7 +103,7 @@ function wp_econtact_set_contact_submit() {
 	}
 	if (!in_array('emd_contact_email', $req_hide_vars['hide'])) {
 		//text
-		$form->add('label', 'label_emd_contact_email', 'emd_contact_email', 'Email', array(
+		$form->add('label', 'label_emd_contact_email', 'emd_contact_email', __('Email', 'wp-econtact') , array(
 			'class' => 'control-label'
 		));
 		$obj = $form->add('text', 'emd_contact_email', '', array(
@@ -129,7 +129,7 @@ function wp_econtact_set_contact_submit() {
 	}
 	if (!in_array('emd_contact_phone', $req_hide_vars['hide'])) {
 		//text
-		$form->add('label', 'label_emd_contact_phone', 'emd_contact_phone', 'Phone', array(
+		$form->add('label', 'label_emd_contact_phone', 'emd_contact_phone', __('Phone', 'wp-econtact') , array(
 			'class' => 'control-label'
 		));
 		$obj = $form->add('text', 'emd_contact_phone', '', array(
@@ -151,7 +151,7 @@ function wp_econtact_set_contact_submit() {
 	}
 	if (!in_array('emd_contact_address', $req_hide_vars['hide'])) {
 		//text
-		$form->add('label', 'label_emd_contact_address', 'emd_contact_address', 'Address', array(
+		$form->add('label', 'label_emd_contact_address', 'emd_contact_address', __('Address', 'wp-econtact') , array(
 			'class' => 'control-label'
 		));
 		$obj = $form->add('text', 'emd_contact_address', '', array(
@@ -173,7 +173,7 @@ function wp_econtact_set_contact_submit() {
 	}
 	if (!in_array('emd_contact_city', $req_hide_vars['hide'])) {
 		//text
-		$form->add('label', 'label_emd_contact_city', 'emd_contact_city', 'City', array(
+		$form->add('label', 'label_emd_contact_city', 'emd_contact_city', __('City', 'wp-econtact') , array(
 			'class' => 'control-label'
 		));
 		$obj = $form->add('text', 'emd_contact_city', '', array(
@@ -194,15 +194,15 @@ function wp_econtact_set_contact_submit() {
 		$obj->set_rule($zrule);
 	}
 	if (!in_array('contact_state', $req_hide_vars['hide'])) {
-		$form->add('label', 'label_contact_state', 'contact_state', 'State', array(
+		$form->add('label', 'label_contact_state', 'contact_state', __('State', 'wp-econtact') , array(
 			'class' => 'control-label'
 		));
-		$obj = $form->add('selectadv', 'contact_state', 'Please Select', array(
+		$obj = $form->add('selectadv', 'contact_state', __('Please Select', 'wp-econtact') , array(
 			'class' => 'input-lg'
 		) , '', '{"allowClear":true,"placeholder":"' . __("Please Select", "wp-econtact") . '","placeholderOption":"first"}');
 		//get taxonomy values
 		$txn_arr = Array();
-		$txn_arr[''] = 'Please select';
+		$txn_arr[''] = __('Please Select', 'wp-econtact');
 		$txn_obj = get_terms('contact_state', array(
 			'hide_empty' => 0
 		));
@@ -225,7 +225,7 @@ function wp_econtact_set_contact_submit() {
 	}
 	if (!in_array('emd_contact_zipcode', $req_hide_vars['hide'])) {
 		//text
-		$form->add('label', 'label_emd_contact_zipcode', 'emd_contact_zipcode', 'Zip Code', array(
+		$form->add('label', 'label_emd_contact_zipcode', 'emd_contact_zipcode', __('Zip Code', 'wp-econtact') , array(
 			'class' => 'control-label'
 		));
 		$obj = $form->add('text', 'emd_contact_zipcode', '', array(
@@ -246,15 +246,15 @@ function wp_econtact_set_contact_submit() {
 		$obj->set_rule($zrule);
 	}
 	if (!in_array('contact_country', $req_hide_vars['hide'])) {
-		$form->add('label', 'label_contact_country', 'contact_country', 'Country', array(
+		$form->add('label', 'label_contact_country', 'contact_country', __('Country', 'wp-econtact') , array(
 			'class' => 'control-label'
 		));
-		$obj = $form->add('selectadv', 'contact_country', 'Please Select', array(
+		$obj = $form->add('selectadv', 'contact_country', __('Please Select', 'wp-econtact') , array(
 			'class' => 'input-lg'
 		) , '', '{"allowClear":true,"placeholder":"' . __("Please Select", "wp-econtact") . '","placeholderOption":"first"}');
 		//get taxonomy values
 		$txn_arr = Array();
-		$txn_arr[''] = 'Please select';
+		$txn_arr[''] = __('Please Select', 'wp-econtact');
 		$txn_obj = get_terms('contact_country', array(
 			'hide_empty' => 0
 		));
@@ -277,7 +277,7 @@ function wp_econtact_set_contact_submit() {
 	}
 	if (!in_array('blt_title', $req_hide_vars['hide'])) {
 		//text
-		$form->add('label', 'label_blt_title', 'blt_title', 'Subject', array(
+		$form->add('label', 'label_blt_title', 'blt_title', __('Subject', 'wp-econtact') , array(
 			'class' => 'control-label'
 		));
 		$obj = $form->add('text', 'blt_title', '', array(
@@ -297,7 +297,7 @@ function wp_econtact_set_contact_submit() {
 	}
 	if (!in_array('blt_content', $req_hide_vars['hide'])) {
 		//wysiwyg
-		$form->add('label', 'label_blt_content', 'blt_content', 'Message', array(
+		$form->add('label', 'label_blt_content', 'blt_content', __('Message', 'wp-econtact') , array(
 			'class' => 'control-label'
 		));
 		$obj = $form->add('wysiwyg', 'blt_content', '', array(
@@ -367,7 +367,7 @@ function wp_econtact_process_contact_submit() {
 	if ($show_form == 1) {
 		wp_enqueue_style('wpasui');
 		wp_enqueue_script('jquery');
-		wp_enqueue_script('jvalidate-js');
+		wp_enqueue_script('wpas-jvalidate-js');
 		wp_enqueue_style('contact-submit-forms');
 		wp_enqueue_script('contact-submit-forms-js');
 		return emd_submit_php_form('contact_submit', 'wp_econtact', 'emd_contact', 'publish', 'publish', 'Thanks for your submission.', 'There has been an error when submitting your entry. Please contact the site administrator.', 0, 1);

@@ -20,23 +20,40 @@ add_action('emd_show_settings_page','emd_show_settings_page',1);
 
 function emd_show_settings_page($app){
 	global $title;
+	$ent_map_variables = Array();
 	$variables = get_option($app . '_glob_list',Array());
+	$init_variables = get_option($app . '_glob_init_list',Array());
+	$form_init_variables = get_option($app . '_glob_forms_init_list');
 	$form_variables = get_option($app . '_glob_forms_list');
+	$attr_list = get_option($app . '_attr_list');
+	$ent_list = get_option($app . '_ent_list');
+	foreach($attr_list as $ent => $attr){
+		foreach($attr as $kattr => $vattr){
+			if($vattr['display_type'] == 'map'){
+				$ent_map_variables[$kattr] = Array('ent'=>$ent,'label'=>$vattr['label'], 'ent_label'=>$ent_list[$ent]['label']);
+			}
+		}
+	}
 ?>
 	<div class="wrap">
 	<h2><?php echo $title; ?></h2>
 <?php	
-	if(!empty($variables)){
+	if(!empty($init_variables)){
 		$active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'global';
 		$tabs['global'] = __('Global', 'emd_plugins');
 		echo '<p>' . settings_errors($app . '_glob_list') . '</p>';
 	}
-	if(!empty($form_variables)){
+	if(!empty($form_init_variables)){
 		$active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'forms';
 		$tabs['forms'] = __('Forms', 'emd_plugins');
 		echo '<p>' . settings_errors($app . '_glob_forms_list') . '</p>';
 	}
-	if(empty($variables) && empty($form_variables)){
+	if(!empty($ent_map_variables)){
+		$active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'entity';
+		$tabs['entity'] = __('Entities', 'emd_plugins');
+		echo '<p>' . settings_errors($app . '_ent_map_list') . '</p>';
+	}
+	if(empty($variables) && empty($form_init_variables) && empty($ent_map_variables)){
 		echo '<h4>' . __('No settings found.','emd-plugins');
 		echo '</div>';
 		return;
@@ -56,17 +73,22 @@ function emd_show_settings_page($app){
 		echo '<a href="' . esc_url($tab_url[$ktab]) . '" class="nav-tab ' . $active . '" id="nav-' . $ktab . '">' . $mytab . '</a>';
 	}
 	echo '</h2>';
-	if(!empty($variables)){
-		emd_glob_view_tab($app,$active_tab,$variables);
+	if(!empty($init_variables)){
+		emd_glob_view_tab($app,$active_tab,$init_variables,$variables);
 	}
-	if(!empty($form_variables)){
-		emd_glob_forms_tab($app,$active_tab,$form_variables,$variables);
+	if(!empty($form_init_variables)){
+		emd_glob_forms_tab($app,$active_tab,$form_init_variables,$form_variables,$variables);
+	}
+	if(!empty($ent_map_variables)){
+		$ent_map_list = get_option($app .'_ent_map_list',Array());
+		emd_ent_map_tab($app,$active_tab,$ent_map_variables,$ent_map_list);
 	}
 	echo '</div>';
 }
 function emd_glob_register_settings($app){
 	register_setting($app . '_glob_list', $app . '_glob_list', 'emd_glob_sanitize');
 	register_setting($app . '_glob_forms_list', $app . '_glob_forms_list', 'emd_glob_forms_sanitize');
+	register_setting($app . '_ent_map_list', $app . '_ent_map_list', 'emd_ent_map_sanitize');
 	$variables = get_option($app . '_glob_list');
 	if(!empty($variables)){
 		foreach($variables as $id => $myvar){
@@ -76,8 +98,26 @@ function emd_glob_register_settings($app){
 		}
 	}
 }
+function emd_ent_map_sanitize($input){
+	$ent_map_list = get_option($input['app'] . '_ent_map_list');
+	$map_keys = Array('width','height','zoom','map_type','marker','load_info');
+	
+	foreach($input as $ikey => $vkey){
+		if($ikey != 'app'){
+			foreach($map_keys as $mkey){
+				if(isset($vkey[$mkey])){
+					$ent_map_list[$ikey][$mkey] = $vkey[$mkey];
+				}
+				else{
+					unset($ent_map_list[$ikey][$mkey]);		
+				}
+			}
+		}
+	}
+	return $ent_map_list;
+}
 function emd_glob_sanitize($input){
-	$variables = get_option($input['app'] . '_glob_list');
+	$variables = get_option($input['app'] . '_glob_init_list');
 	foreach($variables as $kv => $val){
 		if(isset($input[$kv])){
 			$variables[$kv]['val'] = $input[$kv];
@@ -107,17 +147,17 @@ function emd_glob_sanitize($input){
 	return $variables;
 }
 function emd_glob_forms_sanitize($input){
-	$form_variables = get_option($input['app'] . '_glob_forms_list');
+	$form_variables = get_option($input['app'] . '_glob_forms_init_list');
 	$attr_list = get_option($input['app'] . '_attr_list');
-	//$tax_list = get_option($input['app']. '_tax_list');
-	//$rel_list = get_option($input['app'] . '_rel_list');
 	$shc_list = get_option($input['app'] . '_shc_list');
 	foreach($form_variables as $kv => $val){
 		foreach($val as $kfield => $vfield){
+			$change_show = 0;
 			if($kfield != 'captcha'){
 				if(isset($input[$kv][$kfield]['req']) && $input[$kv][$kfield]['req'] == 1){
 					if(!isset($input[$kv][$kfield]['show'])){
 						$form_variables[$kv][$kfield]['show'] = 1;
+						$change_show = 1;
 					}
 					$form_variables[$kv][$kfield]['req'] = 1;
 				}
@@ -137,7 +177,7 @@ function emd_glob_forms_sanitize($input){
 				elseif(isset($input[$kv][$kfield]['show']) && $input[$kv][$kfield]['show'] == 1){
 					$form_variables[$kv][$kfield]['show'] = 1;
 				}
-				else {
+				elseif($change_show != 1) {
 					$form_variables[$kv][$kfield]['show'] = 0;
 				}
 				if(isset($input[$kv][$kfield]['size'])){
@@ -170,16 +210,19 @@ function emd_glob_val($app,$key){
 	}
 	return '';
 }
-function emd_glob_view_tab($app,$active_tab,$variables){
+function emd_glob_view_tab($app,$active_tab,$init_variables,$variables){
 ?>
 	<div class='tab-content' id='tab-global' <?php if ( 'global' != $active_tab ) { echo 'style="display:none;"'; } ?>>
 <?php	echo '<form method="post" action="options.php">';
 	settings_fields($app .'_glob_list'); ?>
-	<?php if(!empty($variables)){
+	<?php if(!empty($init_variables)){
 	echo '<input type="hidden" name="' . esc_attr($app) . '_glob_list[app]" id="' . esc_attr($app) . '_glob_list_app" value="' . $app . '">';
 	echo '<table class="form-table">
 		<tbody>';
-	foreach($variables as $id => $myvar){
+	foreach($init_variables as $id => $myvar){
+		if(!empty($variables) && !empty($variables[$id])){
+			$myvar = $variables[$id];
+		}
 		echo '<tr>
 			<th scope="row">
 			<label for="' . $id . '">';
@@ -347,7 +390,7 @@ function emd_glob_view_tab($app,$active_tab,$variables){
 	submit_button(); 
 	echo '</form></div>';
 }
-function emd_glob_forms_tab($app,$active_tab,$form_variables,$glb_list){
+function emd_glob_forms_tab($app,$active_tab,$form_init_variables,$form_variables,$glb_list){
 	$attr_list = get_option($app . '_attr_list');
 	$tax_list = get_option($app . '_tax_list');
 	$rel_list = get_option($app . '_rel_list');
@@ -364,8 +407,8 @@ function emd_glob_forms_tab($app,$active_tab,$form_variables,$glb_list){
 	$form_content = '</h4>';
 	$form_content .= '<div id="forms-list" class="accordion-container"><ul class="outer-border">';
 	$unique_text = 0;
-	if(!empty($form_variables)){
-		foreach($form_variables as $key => $val){
+	if(!empty($form_init_variables)){
+		foreach($form_init_variables as $key => $val){
 			$form_label = isset($shc_list['forms'][$key]['page_title']) ? $shc_list['forms'][$key]['page_title'] : ucwords(str_replace("_"," ",$shc_list['forms'][$key]['name']));
 			$form_content .= '<li id="' . esc_attr($key) . '" class="control-section accordion-section">
 			<h3 class="accordion-section-title hndle" tabindex="0">' . $form_label . '</h3>';
@@ -374,6 +417,9 @@ function emd_glob_forms_tab($app,$active_tab,$form_variables,$glb_list){
 			$form_content .= '<table class="form-table">';
 			$row = 1;
 			foreach($val as $elm_key => $elm_val){
+				if(!empty($form_variables) && !empty($form_variables[$key][$elm_key])){
+					$elm_val = $form_variables[$key][$elm_key];
+				}
 				$label = "";
 				$req = 0;
 				$unique = false;
@@ -386,7 +432,9 @@ function emd_glob_forms_tab($app,$active_tab,$form_variables,$glb_list){
 					else {
 						$row = $elm_val['row'] + 1;
 					}
-					$req = $elm_val['req'];
+					if(isset($elm_val['req'])){
+						$req = $elm_val['req'];
+					}
 					$form_content .= '>
 						<th scope="row">
 						<label for="' . $elm_key . '">';
@@ -472,7 +520,77 @@ function emd_glob_forms_tab($app,$active_tab,$form_variables,$glb_list){
 	$form_html .= $form_header . $form_content . '</div>';
 	echo $form_html;
 	submit_button(); 
-	$form_html .= '</form></div>';
+	echo '</form></div>';
+}
+function emd_ent_map_tab($app,$active_tab,$ent_map_variables,$ent_map_list){
+?>
+	<div class='tab-content' id='tab-entity' <?php if ( 'entity' != $active_tab ) { echo 'style="display:none;"'; } ?>>
+<?php	echo '<form method="post" action="options.php">';
+	settings_fields($app .'_ent_map_list'); ?>
+	<?php if(!empty($ent_map_variables)){
+		$map_ents = Array();
+		foreach($ent_map_variables as $mkey => $mval){
+			$map_ents[$mval['ent']]['label'] = $mval['ent_label'];
+			$map_ents[$mval['ent']]['attrs'][] = $mkey;
+		}
+		echo '<input type="hidden" name="' . esc_attr($app) . '_ent_map_list[app]" id="' . esc_attr($app) . '_ent_map_list_app" value="' . $app . '">';
+		echo '<div id="map-list" class="accordion-container"><ul class="outer-border">';
+		foreach($map_ents as $kent => $myent){
+			echo '<li id="' . esc_attr($kent) . '" class="control-section accordion-section">
+			<h3 class="accordion-section-title hndle" tabindex="0">' . $myent['label'] . '</h3>';
+			echo '<div class="accordion-section-content"><div class="inside">';
+			echo '<table class="form-table"><tbody>';
+			foreach($myent['attrs'] as $mattr){
+				$mattr_key = $mattr;
+				$mattr_val = $ent_map_variables[$mattr_key];
+				echo '<tr>
+					<th scope="row">
+					<label for="' . $mattr_key . '">';
+				echo $mattr_val['label']; 
+				echo '</label>
+					</th>
+					<td>';
+					$width = isset($ent_map_list[$mattr_key]['width']) ? $ent_map_list[$mattr_key]['width'] : '';
+					$height = isset($ent_map_list[$mattr_key]['height']) ? $ent_map_list[$mattr_key]['height'] : '';
+					$zoom = isset($ent_map_list[$mattr_key]['zoom']) ? $ent_map_list[$mattr_key]['zoom'] : '14';
+					$marker = isset($ent_map_list[$mattr_key]['marker']) ? 'checked' : '';
+					$load_info = isset($ent_map_list[$mattr_key]['load_info']) ? 'checked' : '';
+					$map_type = isset($ent_map_list[$mattr_key]['map_type']) ? $ent_map_list[$mattr_key]['map_type'] : '';
+					echo "<tr><th scope='row'></th><td><table><th scope='row'><label>" . __('Frontend Map Settings','emd-plugins') . "</th><td></td></tr>
+					<th scope='row'><label for='ent_map_list_" . $mattr_key . "_width'>" . __('Width','emd-plugins') . "</th><td><input id='" . esc_attr($app) . "_ent_map_list_" . $mattr_key . "_width' name='" . esc_attr($app) . "_ent_map_list[" . $mattr_key . "][width]' type='text' value='" . $width . "'></input><p class='description'>" . __('Sets the map width.You can use \'%\' or \'px\'. Default is 100%.','emd-plugins') . "</p></td></tr>";
+					echo "<tr><th scope='row'><label for='ent_map_list_" . $mattr_key . "_height'>" . __('Height','emd-plugins') . "</th><td><input id='" . esc_attr($app) . "_ent_map_list_" . $mattr_key . "_height' name='" . esc_attr($app) . "_ent_map_list[" . $mattr_key . "][height]' type='text' value='" . $height ."'></input><p class='description'>" . __('Sets the map height. You can use \'px\'. Default is 480px.','emd-plugins') . "</p></td></tr>";
+					echo "<tr><th scope='row'><label for='ent_map_list_" . $mattr_key . "_zoom'>" . __('Zoom','emd-plugins') . "</th><td><select id='" . esc_attr($app) . "_ent_map_list_" . $mattr_key . "_zoom' name='" . esc_attr($app) . "_ent_map_list[" . $mattr_key . "][zoom]'>";
+				for($i=20;$i >=1;$i--){
+					echo "<option value='" . $i . "'";
+					if($zoom == $i){
+						echo " selected";
+					}
+					echo ">" . $i . "</option>";
+				}
+				echo "</select></td></tr>";
+				echo "<tr><th scope='row'><label for='ent_map_list_" . $mattr_key . "_map_type'>" . __('Type','emd-plugins') . "</th><td><select id='" . esc_attr($app) . "_ent_map_list_" . $mattr_key . "_map_type' name='" . esc_attr($app) . "_ent_map_list[" . $mattr_key . "][map_type]'>";
+				$map_types = Array("ROADMAP","SATELLITE","HYBRID","TERRAIN");
+				foreach($map_types as $mtype){
+					echo "<option value='" . $mtype . "'";
+					if($map_type == $mtype){
+						echo " selected";
+					}
+					echo ">" . $mtype . "</option>";
+				}
+				echo "</select></td></tr>";
+				echo "<tr><th scope='row'><label for='ent_map_list_" . $mattr_key . "_marker'>" . __('Marker','emd-plugins') . "</th><td><input id='" . esc_attr($app) . "_ent_map_list_" . $mattr_key . "_marker' name='" . esc_attr($app) . "_ent_map_list[" . $mattr_key . "][marker]' type='checkbox' value=1 $marker></input></td></tr>";
+				echo "<tr><th scope='row'><label for='ent_map_list_" . $mattr_key . "_load_info'>" . __('Display Info Window on Page Load','emd-plugins') . "</th><td><input id='" . esc_attr($app) . "_ent_map_list_" . $mattr_key . "_load_info' name='" . esc_attr($app) . "_ent_map_list[" . $mattr_key . "][load_info]' type='checkbox' value=1 $load_info></input></td></tr>";
+				echo "</div></td></tr></table></td></tr>";
+				echo '</td>
+				</tr>';
+			}
+			echo '</tbody></table>';
+			echo '</div></div></li>';
+		}
+		echo '</ul></div>';
+	}
+	submit_button(); 
+	echo '</form></div>';
 }
 function emd_get_global_map($app,$key){
 	$glob_list = get_option(str_replace("-","_",$app) . '_glob_list');
@@ -533,6 +651,34 @@ function emd_get_global_map($app,$key){
 		/*]]>*/} 
 		</style>
 		<div class="emd-mb-map-canvas" data-map_options="' . $js_options . '" style="width:' . $args['width'] . ';height:' . $args['height'] . ';"></div>';
+}
+function emd_get_attr_map($app,$key,$marker_title,$info_window,$post_id=''){
+	$ent_map_list = get_option(str_replace("-","_",$app) . '_ent_map_list');
+	$args = Array();
+		
+	$marker = (!empty($ent_map_list[$key]['marker'])) ? true : false;
+	$load_info = (!empty($ent_map_list[$key]['load_info'])) ? true : false;
+	$zoom = ($ent_map_list[$key]['zoom']) ? (int) $ent_map_list[$key]['zoom'] : 14;
+	$map_type = ($ent_map_list[$key]['map_type']) ? $ent_map_list[$key]['map_type'] : 'ROADMAP';
+	$width = ($ent_map_list[$key]['width']) ? $ent_map_list[$key]['width'] : '100%'; // Map width, default is 640px. You can use '%' or 'px'
+	$height = ($ent_map_list[$key]['height']) ? $ent_map_list[$key]['height'] : '480px'; // Map height, default is 480px. You can use '%' or 'px'
+	
+	$args = array(
+			'type'	       => 'map',
+			'zoom'         => $zoom,  // Map zoom, default is the value set in admin, and if it's omitted - 14
+			'width'        => $width,
+			'height'       => $height,
+			// Map type, see https://developers.google.com/maps/documentation/javascript/reference#MapTypeId
+			'mapTypeId'    => $map_type,
+			'marker'       => $marker, // Display marker? Default is 'true',
+			'load_info'    => $load_info
+		);
+	if($marker !== false && !empty($marker_title)){
+		$args['marker_title'] = emd_mb_meta($marker_title,'',$post_id); // Marker title when hover
 	}
-
+	if($marker !== false && !empty($info_window)){
+		$args['info_window'] = emd_mb_meta($info_window,'',$post_id); // Info window content, can be anything. HTML allowed.
+	}
+	return emd_mb_meta($key,$args,$post_id);
+}
 

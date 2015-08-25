@@ -3,7 +3,7 @@
  * Entity Class
  *
  * @package WP_ECONTACT
- * @version 2.0.0
+ * @version 2.1.0
  * @since WPAS 4.0
  */
 if (!defined('ABSPATH')) exit;
@@ -102,7 +102,8 @@ class Emd_Contact extends Emd_Entity {
 						'term' => $term->slug,
 						'taxonomy' => $column_id
 					) , admin_url('edit.php'));
-					$ret[] = sprintf('<a href="%s">%s</a>', $url, $term->name);
+					$a_class = preg_replace('/^emd_/', '', $this->post_type);
+					$ret[] = sprintf('<a href="%s"  class="' . $a_class . '-tax ' . $term->slug . '">%s</a>', $url, $term->name);
 				}
 			}
 			echo implode(', ', $ret);
@@ -126,7 +127,7 @@ class Emd_Contact extends Emd_Entity {
 				if (!empty($image_list)) {
 					$value = "";
 					foreach ($image_list as $myimage) {
-						$value.= "<img src='" . $myimage['url'] . "' >";
+						$value.= "<img style='max-width:100%;height:auto;' src='" . $myimage['url'] . "' >";
 					}
 				}
 			break;
@@ -1581,6 +1582,8 @@ class Emd_Contact extends Emd_Entity {
 	 *
 	 */
 	public function set_filters() {
+		$search_args = Array();
+		$filter_args = Array();
 		$this->sing_label = __('Contact', 'wp-econtact');
 		$this->plural_label = __('Contacts', 'wp-econtact');
 		$this->menu_entity = 'emd_contact';

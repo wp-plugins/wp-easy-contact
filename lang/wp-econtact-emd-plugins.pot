@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-06-25T16:36:23-04:00\n"
-"POT-Creation-Date: 2015-06-25T16:36:23-04:00\n"
+"PO-Revision-Date: 2015-08-25T14:14:02-04:00\n"
+"POT-Creation-Date: 2015-08-25T14:14:02-04:00\n"
 
 #: ./wp-easy-contact/assets/ext/edd/EDD_SL_Plugin_Updater.php:177
 msgid "There is a new version of %1$s available. <a target=\"_blank\" class=\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
@@ -485,11 +485,11 @@ msgstr ""
 msgid "Possible spam attempt detected. The posted form data was rejected."
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/dashboard-widget-functions.php:57
+#: ./wp-easy-contact/includes/admin/dashboard-widget-functions.php:59
 msgid "No %s found"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/dashboard-widget-functions.php:128
+#: ./wp-easy-contact/includes/admin/dashboard-widget-functions.php:130
 msgid "Number of %s to show:"
 msgstr ""
 
@@ -497,115 +497,128 @@ msgstr ""
 msgid "Please enter and activate your <b>license keys</b>."
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/license-functions.php:81
+#: ./wp-easy-contact/includes/admin/license-functions.php:78
 msgid "Deactivate License"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/license-functions.php:85
+#: ./wp-easy-contact/includes/admin/license-functions.php:82
 msgid "Activate License"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:31
+#: ./wp-easy-contact/includes/admin/settings-functions.php:43
 msgid "Global"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:36
+#: ./wp-easy-contact/includes/admin/settings-functions.php:48
 msgid "Forms"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:40
+#: ./wp-easy-contact/includes/admin/settings-functions.php:53
+msgid "Entities"
+msgstr ""
+
+#: ./wp-easy-contact/includes/admin/settings-functions.php:57
 msgid "No settings found."
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:45
+#: ./wp-easy-contact/includes/admin/settings-functions.php:62
 msgid "Settings Saved."
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:89
+#: ./wp-easy-contact/includes/admin/settings-functions.php:129
 msgid "%s is required."
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:227
+#: ./wp-easy-contact/includes/admin/settings-functions.php:270
+#: ./wp-easy-contact/includes/admin/settings-functions.php:559
 msgid "Frontend Map Settings"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:228
+#: ./wp-easy-contact/includes/admin/settings-functions.php:271
+#: ./wp-easy-contact/includes/admin/settings-functions.php:560
 msgid "Width"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:228
+#: ./wp-easy-contact/includes/admin/settings-functions.php:271
+#: ./wp-easy-contact/includes/admin/settings-functions.php:560
 msgid "Sets the map width.You can use '%' or 'px'. Default is 100%."
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:229
+#: ./wp-easy-contact/includes/admin/settings-functions.php:272
+#: ./wp-easy-contact/includes/admin/settings-functions.php:561
 msgid "Height"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:229
+#: ./wp-easy-contact/includes/admin/settings-functions.php:272
+#: ./wp-easy-contact/includes/admin/settings-functions.php:561
 msgid "Sets the map height. You can use 'px'. Default is 480px."
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:230
+#: ./wp-easy-contact/includes/admin/settings-functions.php:273
+#: ./wp-easy-contact/includes/admin/settings-functions.php:562
 msgid "Zoom"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:239
+#: ./wp-easy-contact/includes/admin/settings-functions.php:282
+#: ./wp-easy-contact/includes/admin/settings-functions.php:571
 msgid "Type"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:249
+#: ./wp-easy-contact/includes/admin/settings-functions.php:292
+#: ./wp-easy-contact/includes/admin/settings-functions.php:581
 msgid "Marker"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:250
+#: ./wp-easy-contact/includes/admin/settings-functions.php:293
 msgid "Marker Title"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:250
+#: ./wp-easy-contact/includes/admin/settings-functions.php:293
 msgid "Sets the marker title when hover."
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:251
+#: ./wp-easy-contact/includes/admin/settings-functions.php:294
 msgid "Info Window"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:251
+#: ./wp-easy-contact/includes/admin/settings-functions.php:294
 msgid "Sets the content of the info box. You can use html tags."
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:252
+#: ./wp-easy-contact/includes/admin/settings-functions.php:295
+#: ./wp-easy-contact/includes/admin/settings-functions.php:582
 msgid "Display Info Window on Page Load"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:253
+#: ./wp-easy-contact/includes/admin/settings-functions.php:296
 msgid "You can drag and drop the marker to specify the exact location."
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:363
+#: ./wp-easy-contact/includes/admin/settings-functions.php:406
 msgid "Use the section below to show or hide corresponding form elements. Size column refers to the form elements length relative to the other elements in the same row. Total element size in each row can not exceed 12 units. When you hide or show an element you may adjust sizes of the other elements in the same row. The form elements which are in the same row are color coded."
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:420
+#: ./wp-easy-contact/includes/admin/settings-functions.php:468
 msgid "Show %s"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:448
+#: ./wp-easy-contact/includes/admin/settings-functions.php:496
 msgid "Show Captcha"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:450
+#: ./wp-easy-contact/includes/admin/settings-functions.php:498
 msgid "Never Show"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:451
+#: ./wp-easy-contact/includes/admin/settings-functions.php:499
 msgid "Always Show"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:452
+#: ./wp-easy-contact/includes/admin/settings-functions.php:500
 msgid "Visitors Only"
 msgstr ""
 
-#: ./wp-easy-contact/includes/admin/settings-functions.php:470
+#: ./wp-easy-contact/includes/admin/settings-functions.php:518
 msgid "The unique form elements are disabled however you can change their sizes."
 msgstr ""
 
@@ -687,21 +700,29 @@ msgstr ""
 msgid "Add WPAS Shortcode"
 msgstr ""
 
-#: ./wp-easy-contact/includes/class-emd-widget.php:113
+#: ./wp-easy-contact/includes/class-emd-widget.php:130
 msgid "Title"
 msgstr ""
 
-#: ./wp-easy-contact/includes/class-emd-widget.php:118
+#: ./wp-easy-contact/includes/class-emd-widget.php:135
 msgid "%s to show"
 msgstr ""
 
-#: ./wp-easy-contact/includes/class-emd-widget.php:119
+#: ./wp-easy-contact/includes/class-emd-widget.php:136
 msgid "Max: 10"
 msgstr ""
 
-#: ./wp-easy-contact/includes/class-emd-widget.php:188
-#: ./wp-easy-contact/includes/class-emd-widget.php:201
+#: ./wp-easy-contact/includes/class-emd-widget.php:209
+#: ./wp-easy-contact/includes/class-emd-widget.php:222
 msgid "%1$s on %2$s"
+msgstr ""
+
+#: ./wp-easy-contact/includes/common-functions.php:220
+msgid "Author:"
+msgstr ""
+
+#: ./wp-easy-contact/includes/common-functions.php:221
+msgid "%s \a\t %s"
 msgstr ""
 
 #: ./wp-easy-contact/includes/entities/class-emd-entity.php:152

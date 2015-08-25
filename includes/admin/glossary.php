@@ -3,7 +3,7 @@
  * Settings Glossary Functions
  *
  * @package WP_ECONTACT
- * @version 2.0.0
+ * @version 2.1.0
  * @since WPAS 4.0
  */
 if (!defined('ABSPATH')) exit;
@@ -56,7 +56,7 @@ function wp_econtact_settings_glossary() {
 <td><?php _e(' Message is a required field. Message does not have a default value. ', 'wp-econtact'); ?></td>
 </tr><tr>
 <th><?php _e('ID', 'wp-econtact'); ?></th>
-<td><?php _e('Unique contact id incremented by one to keep tract of communications ID does not have a default value. ', 'wp-econtact'); ?></td>
+<td><?php _e('Unique contact id incremented by one to keep tract of communications Being a unique identifier, it uniquely distinguishes each instance of Contact entity. ID does not have a default value. ', 'wp-econtact'); ?></td>
 </tr><tr>
 <th><?php _e('Form Name', 'wp-econtact'); ?></th>
 <td><?php _e(' Form Name is filterable in the admin area. Form Name has a default value of <b>admin</b>.', 'wp-econtact'); ?></td>

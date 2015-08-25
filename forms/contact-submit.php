@@ -3,6 +3,9 @@
 <?php
 echo (isset($zf_error) ? $zf_error : (isset($error) ? $error : ''));
 $form_list = get_option('wp_econtact_glob_forms_list');
+if (empty($form_list['contact_submit'])) {
+	$form_list = get_option('wp_econtact_glob_forms_init_list');
+}
 $form_variables = $form_list['contact_submit'];
 $req_hide_vars = emd_get_form_req_hide_vars('wp_econtact', 'contact_submit');
 $glob_list = get_option('wp_econtact_glob_list');

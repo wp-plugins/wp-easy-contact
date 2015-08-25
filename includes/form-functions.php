@@ -129,8 +129,8 @@ function emd_search_form($myapp, $myentity, $myform, $myview, $noresult_msg, $pa
 	if (!empty($blts)) {
 		foreach ($blts as $bltkey => $bltval) {
 			$args[$bltkey] = $bltval;
-			if (!empty($oprs) && isset($oprs[$bltkey])) {
-				$args['opr__' . $bltkey] = emd_get_meta_operator($oprs[$bltkey]);
+			if (!empty($oprs) && isset($oprs[$myform . '_' . $bltkey])) {
+				$args['opr__' . $bltkey] = emd_get_meta_operator($oprs[$myform . '_' . $bltkey]);
 			} else {
 				$args['opr__' . $bltkey] = "=";
 			}
@@ -140,8 +140,8 @@ function emd_search_form($myapp, $myentity, $myform, $myview, $noresult_msg, $pa
 	if (!empty($attrs)) {
 		foreach ($attrs as $key => $myattr) {
 			$filter.= "attr::" . $key . "::";
-			if (!empty($oprs) && isset($oprs[$key])) {
-				$filter.= $oprs[$key];
+			if (!empty($oprs) && isset($oprs[$myform . '_' . $key])) {
+				$filter.= $oprs[$myform . '_'  . $key];
 			} else {
 				$filter.= "is";
 			}
@@ -182,6 +182,7 @@ function emd_search_form($myapp, $myentity, $myform, $myview, $noresult_msg, $pa
 			$res_layout.= $list_layout;
 		}
 	}
+	$emd_query->remove_filters();
 	return $res_layout;
 }
 /**
@@ -291,7 +292,7 @@ function emd_search_php_form($form_name, $myapp, $myentity, $noresult_msg, $view
 		$layout.= "</div>";
 		return $layout;
 	}
-	if (!empty($_POST) && $_POST['form_name'] == $form_name) {
+	if (!empty($_POST) && !empty($_POST['form_name']) && $_POST['form_name'] == $form_name) {
 		check_admin_referer($form_name, $form_name . '_nonce');
 		if ($form->validate()) {
 			$layout = "<div style='position:relative;' class='emd-container'>";
@@ -493,7 +494,7 @@ function emd_submit_form($myapp, $myentity, $post_status, $visitor_post_status, 
 			$uniq_keys = $wpas_ent_list[$myentity]['unique_keys'];
 			$new_title = '';
 			foreach ($uniq_keys as $mykey) {
-				if($entity_fields[$mykey] != 'emd_autoinc'){
+				if(isset($entity_fields[$mykey]) && $entity_fields[$mykey] != 'emd_autoinc'){
 					$new_title.= $entity_fields[$mykey] . " - ";
 				}
 			}
@@ -647,18 +648,19 @@ function emd_get_form_req_hide_vars($app,$fname){
 	$glob_forms_list = get_option($app . '_glob_forms_list');
 	$req_arr= Array();
 	$hide_arr= Array();
-
-	foreach($glob_forms_list[$fname] as $fkey => $fval){
-		if(!empty($fval['req']) && $fval['req'] == 1){
-			if(!empty($attr_list[$post_type][$fkey]) && $attr_list[$post_type][$fkey]['display_type'] == 'checkbox'){
-				$req_arr[] = $fkey . "_1";
+	if(!empty($glob_forms_list[$fname])){
+		foreach($glob_forms_list[$fname] as $fkey => $fval){
+			if(!empty($fval['req']) && $fval['req'] == 1){
+				if(!empty($attr_list[$post_type][$fkey]) && $attr_list[$post_type][$fkey]['display_type'] == 'checkbox'){
+					$req_arr[] = $fkey . "_1";
+				}
+				elseif($fkey != 'btn') {
+					$req_arr[] = $fkey;
+				}
 			}
-			elseif($fkey != 'btn') {
-				$req_arr[] = $fkey;
+			if(!empty($fval['show']) && $fval['show'] == 0){
+				$hide_arr[] = $fkey;
 			}
-		}
-		if(!empty($fval['show']) && $fval['show'] == 0){
-			$hide_arr[] = $fkey;
 		}
 	}
 	$ret['req'] = $req_arr;

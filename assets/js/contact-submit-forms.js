@@ -13,19 +13,29 @@ $.validator.setDefaults({
     ignore: [],
 });
 $.extend($.validator.messages,contact_submit_vars.validate_msg);
+$.validator.addMethod('uniqueAttr',function(val,element){
+  var unique = true;
+  var data_input = $("form").serialize();
+  $.ajax({
+    type: 'GET',
+    url: contact_submit_vars.ajax_url,
+    cache: false,
+    async: false,
+    data: {action:'emd_check_unique',data_input:data_input, ptype:'emd_contact',myapp:'wp_econtact'},
+    success: function(response)
+    {
+      unique = response;
+    },
+  });
+  return unique;                
+}, contact_submit_vars.unique_msg);
 $('#contact_submit').validate({
 onfocusout: false,
 onkeyup: false,
 onclick: false,
 errorClass: 'text-danger',
 rules: {
-  'contact_state':{
-required:false,
-},
-'contact_country':{
-required:false,
-},
-emd_contact_first_name:{
+  emd_contact_first_name:{
 },
 emd_contact_last_name:{
 },
@@ -43,6 +53,12 @@ emd_contact_zipcode:{
 blt_title:{
 },
 blt_content:{
+},
+'contact_state':{
+required:false,
+},
+'contact_country':{
+required:false,
 },
 },
 success: function(label) {

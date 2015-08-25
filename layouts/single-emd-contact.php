@@ -1,17 +1,5 @@
 <?php $ent_attrs = get_option('wp_econtact_attr_list'); ?>
 <div class="emd-container">
-<?php $blt_content = $post->post_content;
-if (!empty($blt_content)) { ?>
-   <div id="emd-contact-blt-content-div" class="emd-single-div">
-   <div id="emd-contact-blt-content-key" class="emd-single-title">
-   <?php _e('Message', 'wp-econtact'); ?>
-   </div>
-   <div id="emd-contact-blt-content-val" class="emd-single-val">
-   <?php echo $blt_content; ?>
-   </div>
-   </div>
-<?php
-} ?>
 <?php
 $emd_contact_first_name = emd_mb_meta('emd_contact_first_name');
 if (!empty($emd_contact_first_name)) { ?>
@@ -112,6 +100,18 @@ if (!empty($emd_contact_id)) { ?>
    </div>
    <div id="emd-contact-emd-contact-id-val" class="emd-single-val">
 <?php echo $emd_contact_id; ?>
+   </div>
+   </div>
+<?php
+} ?>
+<?php $blt_content = $post->post_content;
+if (!empty($blt_content)) { ?>
+   <div id="emd-contact-blt-content-div" class="emd-single-div">
+   <div id="emd-contact-blt-content-key" class="emd-single-title">
+   <?php _e('Message', 'wp-econtact'); ?>
+   </div>
+   <div id="emd-contact-blt-content-val" class="emd-single-val">
+   <?php echo $blt_content; ?>
    </div>
    </div>
 <?php

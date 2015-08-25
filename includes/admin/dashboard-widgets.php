@@ -3,7 +3,7 @@
  * Admin Dashboard Functions
  *
  * @package WP_ECONTACT
- * @version 2.0.0
+ * @version 2.1.0
  * @since WPAS 4.0
  */
 if (!defined('ABSPATH')) exit;
@@ -32,11 +32,14 @@ function wp_econtact_recent_dash_contacts_dwidget() {
 		'post_type' => 'emd_contact',
 		'post_status' => 'publish',
 		'orderby' => 'date',
-		'order' => 'DESC'
+		'order' => 'DESC',
+		'context' => 'wp_econtact_WID_widget',
 	);
 	$args['fname'] = 'wp_econtact_recent_dash_contacts_layout';
 	$args['app'] = 'wp_econtact';
 	$args['filter'] = '';
+	$args['header'] = '';
+	$args['footer'] = '';
 	emd_dashboard_widget('wp_econtact_recent_dash_contacts', 'entity', $args);
 }
 /**
@@ -53,6 +56,8 @@ function wp_econtact_recent_dash_contacts_dwidget_control() {
  *
  */
 function wp_econtact_recent_dash_contacts_layout() {
+	global $post;
+	$ent_attrs = get_option('wp_econtact_attr_list');
 ?>
 * <a href="<?php echo get_permalink() ?>" title="<?php echo esc_html(emd_mb_meta('emd_contact_email')) ?>"><?php echo esc_html(emd_mb_meta('emd_contact_first_name')) ?> <?php echo esc_html(emd_mb_meta('emd_contact_last_name')) ?></a> <br>
 <?php

@@ -2,7 +2,7 @@
 /**
  * Install and Deactivate Plugin Functions
  * @package WP_ECONTACT
- * @version 2.0.0
+ * @version 2.1.0
  * @since WPAS 4.0
  */
 if (!defined('ABSPATH')) exit;
@@ -44,7 +44,7 @@ if (!class_exists('Wp_Econtact_Install_Deactivate')):
 			add_action('admin_init', array(
 				$this,
 				'register_settings'
-			));
+			) , 0);
 			if (is_admin()) {
 				$this->stax = new Emd_Single_Taxonomy('wp-econtact');
 			}
@@ -238,6 +238,7 @@ if (!class_exists('Wp_Econtact_Install_Deactivate')):
 			$ent_list = Array(
 				'emd_contact' => Array(
 					'label' => __('Contacts', 'wp-econtact') ,
+					'sortable' => 0,
 					'unique_keys' => Array(
 						'emd_contact_id'
 					) ,
@@ -398,7 +399,10 @@ if (!class_exists('Wp_Econtact_Install_Deactivate')):
 				update_option($this->option_name . '_attr_list', $attr_list);
 			}
 			if (!empty($glob_list)) {
-				update_option($this->option_name . '_glob_list', $glob_list);
+				update_option($this->option_name . '_glob_init_list', $glob_list);
+				if (get_option($this->option_name . '_glob_list') === false) {
+					update_option($this->option_name . '_glob_list', $glob_list);
+				}
 			}
 			$glob_forms_list['contact_submit']['captcha'] = 'show-to-visitors';
 			$glob_forms_list['contact_submit']['emd_contact_first_name'] = Array(
@@ -470,13 +474,17 @@ if (!class_exists('Wp_Econtact_Install_Deactivate')):
 				'label' => __('Message', 'wp-econtact')
 			);
 			if (!empty($glob_forms_list)) {
-				update_option($this->option_name . '_glob_forms_list', $glob_forms_list);
+				update_option($this->option_name . '_glob_forms_init_list', $glob_forms_list);
+				if (get_option($this->option_name . '_glob_forms_list') === false) {
+					update_option($this->option_name . '_glob_forms_list', $glob_forms_list);
+				}
 			}
 			$tax_list['emd_contact']['contact_state'] = Array(
 				'label' => __('States', 'wp-econtact') ,
 				'default' => '',
 				'type' => 'single',
 				'hier' => 0,
+				'sortable' => 0,
 				'required' => 0,
 				'srequired' => 0
 			);
@@ -485,6 +493,7 @@ if (!class_exists('Wp_Econtact_Install_Deactivate')):
 				'default' => '',
 				'type' => 'single',
 				'hier' => 0,
+				'sortable' => 0,
 				'required' => 0,
 				'srequired' => 0
 			);
@@ -493,6 +502,7 @@ if (!class_exists('Wp_Econtact_Install_Deactivate')):
 				'default' => '',
 				'type' => 'multi',
 				'hier' => 0,
+				'sortable' => 0,
 				'required' => 0,
 				'srequired' => 0
 			);
